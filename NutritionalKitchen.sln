@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36109.1 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NutritionalKitchen.Infrastructure", "NutritionalKitchen.Infrastructure\NutritionalKitchen.Infrastructure.csproj", "{B8B697C1-9690-4FC9-9E22-D798A92B2F11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NutritionalKitchen.Application", "NutritionalKitchen.Application\NutritionalKitchen.Application.csproj", "{2D69326C-94CA-47C1-9227-86E5DBB7F45D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NutritionalKitchen.Domain", "NutritionalKitchen.Domain\NutritionalKitchen.Domain.csproj", "{931DBCC9-A142-4E09-A0A2-18537E48F405}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NutritionalKitchen.Integration", "NutritionalKitchen.Integration\NutritionalKitchen.Integration.csproj", "{30117C15-4F78-4A60-99D2-5CDE28E58617}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NutritionalKitchen.Test", "NutritionalKitchen.Test\NutritionalKitchen.Test.csproj", "{18F606F0-A943-4ABB-99EF-C328CCC7D6B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NutritionalKitchen.WebApi", "NutritionalKitchen.WebApi\NutritionalKitchen.WebApi.csproj", "{458F3F2A-D6FC-4E34-B636-4B865A7ACA66}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8B697C1-9690-4FC9-9E22-D798A92B2F11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8B697C1-9690-4FC9-9E22-D798A92B2F11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8B697C1-9690-4FC9-9E22-D798A92B2F11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8B697C1-9690-4FC9-9E22-D798A92B2F11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D69326C-94CA-47C1-9227-86E5DBB7F45D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D69326C-94CA-47C1-9227-86E5DBB7F45D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D69326C-94CA-47C1-9227-86E5DBB7F45D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D69326C-94CA-47C1-9227-86E5DBB7F45D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{931DBCC9-A142-4E09-A0A2-18537E48F405}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{931DBCC9-A142-4E09-A0A2-18537E48F405}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{931DBCC9-A142-4E09-A0A2-18537E48F405}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{931DBCC9-A142-4E09-A0A2-18537E48F405}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30117C15-4F78-4A60-99D2-5CDE28E58617}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30117C15-4F78-4A60-99D2-5CDE28E58617}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30117C15-4F78-4A60-99D2-5CDE28E58617}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30117C15-4F78-4A60-99D2-5CDE28E58617}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18F606F0-A943-4ABB-99EF-C328CCC7D6B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18F606F0-A943-4ABB-99EF-C328CCC7D6B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18F606F0-A943-4ABB-99EF-C328CCC7D6B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18F606F0-A943-4ABB-99EF-C328CCC7D6B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{458F3F2A-D6FC-4E34-B636-4B865A7ACA66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{458F3F2A-D6FC-4E34-B636-4B865A7ACA66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{458F3F2A-D6FC-4E34-B636-4B865A7ACA66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{458F3F2A-D6FC-4E34-B636-4B865A7ACA66}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8E622C3E-ED81-4F68-9767-159783283497}
+	EndGlobalSection
+EndGlobal
