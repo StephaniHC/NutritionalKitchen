@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace NutritionalKitchen.Domain.Abstractions
 {
-    internal interface IRepository
+    public interface IRepository <TEntity> where TEntity : Entity
     {
+        Task<TEntity?> GetByIdAsync(Guid id, bool readOnly = false);
+        Task AddAsync(TEntity entity);
     }
 }

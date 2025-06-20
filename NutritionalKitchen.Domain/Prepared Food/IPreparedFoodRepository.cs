@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NutritionalKitchen.Domain.Prepared_Food
+namespace NutritionalKitchen.Domain.PreparedFood
 {
-    internal interface IPreparedFoodRepository
+    public interface IPreparedFoodRepository
     {
     }
 }

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace NutritionalKitchen.Domain.Abstractions
 {
-    internal interface IUnitOfWork
+    public interface IUnitOfWork
     {
+        Task CommitAsync(CancellationToken cancellationToken = default);
     }
 }

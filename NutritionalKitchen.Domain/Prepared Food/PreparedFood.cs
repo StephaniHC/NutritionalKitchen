@@ -1,12 +1,16 @@
-﻿using System;
+﻿using NutritionalKitchen.Domain.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NutritionalKitchen.Domain.Prepared_Food
+namespace NutritionalKitchen.Domain.PreparedFood
 {
-    internal class PreparedFood
+    public class PreparedFood : AggregateRoot
     {
+        public PreparedFood(Guid id) : base(id)
+        {
+        }
     }
 }

@@ -1,6 +1,0 @@
-@NutritionalKitchen.WebApi_HostAddress = http://localhost:5115
-
-GET {{NutritionalKitchen.WebApi_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

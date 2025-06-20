@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NutritionalKitchen.Domain.KitchenTask;
+using NutritionalKitchen.Infrastructure.DomainModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,18 @@ using System.Threading.Tasks;
 
 namespace NutritionalKitchen.Infrastructure.Repositories
 {
-    internal class KitchenTaskRepository
+    public class KitchenTaskRepository : IKitchenTaskRepository
     {
+        private readonly DomainDbContext _dbContext;
+
+        public KitchenTaskRepository(DomainDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
+        public async Task AddAsync(KitchenTask entity)
+        {
+            await _dbContext.KitchenTask.AddAsync(entity);
+        }
     }
 }

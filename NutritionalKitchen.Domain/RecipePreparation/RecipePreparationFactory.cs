@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NutritionalKitchen.Domain.RecipePreparation
 {
-    internal class RecipePreparationFactory
+    public class RecipePreparationFactory
     {
     }
 }

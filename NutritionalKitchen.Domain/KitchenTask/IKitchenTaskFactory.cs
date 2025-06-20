@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NutritionalKitchen.Domain.KitchenTask
 {
-    internal interface IKitchenTaskFactory
+    public interface IKitchenTaskFactory
     {
     }
 }

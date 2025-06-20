@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NutritionalKitchen.Infrastructure.Handlers
 {
-    internal class GetLabelHandler
+    public class GetLabelHandler
     {
     }
 }

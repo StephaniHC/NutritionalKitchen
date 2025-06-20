@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NutritionalKitchen.Domain.Package
 {
-    internal interface IPackageFactory
+    public interface IPackageFactory
     {
     }
 }

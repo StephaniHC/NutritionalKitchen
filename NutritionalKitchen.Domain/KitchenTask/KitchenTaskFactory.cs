@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NutritionalKitchen.Domain.KitchenTask
 {
-    internal class KitchenTaskFactory
+    public class KitchenTaskFactory
     {
     }
 }

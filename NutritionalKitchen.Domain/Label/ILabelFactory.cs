@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NutritionalKitchen.Domain.Label
 {
-    internal interface ILabelFactory
+    public interface ILabelFactory
     {
     }
 }
