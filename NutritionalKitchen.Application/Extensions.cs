@@ -1,6 +1,6 @@
 ﻿namespace NutritionalKitchen.Application
 {
-    public class Class1
+    public class Extensions
     {
 
     }
