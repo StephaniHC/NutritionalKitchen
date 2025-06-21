@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NutritionalKitchen.Infrastructure.StoredModel.Entities
 {
-    [Table("label")]
+    [Table("Label")]
     public class LabelStoredModel
     {
         [Key]

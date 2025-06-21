@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace NutritionalKitchen.Application.Package.GetPackage
 {
-    internal class PackageDTO
+    public class PackageDTO
     {
+        public Guid Id { get; set; }
+        public string Status { get; set; }
+        public Guid LabelId { get; set; }
     }
 }

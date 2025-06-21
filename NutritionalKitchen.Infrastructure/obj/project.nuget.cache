@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "RWgY/kjizNM=",
+  "dgSpecHash": "KUTDIKzWHkk=",
   "success": true,
   "projectFilePath": "C:\\Users\\steph\\Documents\\DiploNur\\PresentacionFinal\\git\\NutritionalKitchen\\NutritionalKitchen.Infrastructure\\NutritionalKitchen.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\steph\\.nuget\\packages\\aspnetcore.healthchecks.rabbitmq\\9.0.0\\aspnetcore.healthchecks.rabbitmq.9.0.0.nupkg.sha512",
     "C:\\Users\\steph\\.nuget\\packages\\joseco.communication.external.contracts\\1.0.1\\joseco.communication.external.contracts.1.0.1.nupkg.sha512",
     "C:\\Users\\steph\\.nuget\\packages\\joseco.communication.external.rabbitmq\\1.0.2\\joseco.communication.external.rabbitmq.1.0.2.nupkg.sha512",
+    "C:\\Users\\steph\\.nuget\\packages\\mediatr\\12.5.0\\mediatr.12.5.0.nupkg.sha512",
+    "C:\\Users\\steph\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\steph\\.nuget\\packages\\microsoft.entityframeworkcore\\9.0.5\\microsoft.entityframeworkcore.9.0.5.nupkg.sha512",
     "C:\\Users\\steph\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\9.0.5\\microsoft.entityframeworkcore.abstractions.9.0.5.nupkg.sha512",
     "C:\\Users\\steph\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\9.0.5\\microsoft.entityframeworkcore.analyzers.9.0.5.nupkg.sha512",

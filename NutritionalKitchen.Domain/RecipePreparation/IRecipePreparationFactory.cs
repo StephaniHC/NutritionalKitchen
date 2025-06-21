@@ -8,5 +8,6 @@ namespace NutritionalKitchen.Domain.RecipePreparation
 {
     public interface IRecipePreparationFactory
     {
+        RecipePreparation Create(string recipeName, string detail, DateTime preparationDate, Guid patientId);
     }
 }

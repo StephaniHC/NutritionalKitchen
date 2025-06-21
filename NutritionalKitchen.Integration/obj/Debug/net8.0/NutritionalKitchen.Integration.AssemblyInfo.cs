@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NutritionalKitchen.Integration")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b00cf1e24acc02e697c751512a8050c37cf307c8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d3f716a07d97375872bec863b7ad7fd18446542")]
 [assembly: System.Reflection.AssemblyProductAttribute("NutritionalKitchen.Integration")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NutritionalKitchen.Integration")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

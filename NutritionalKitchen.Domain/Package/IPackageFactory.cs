@@ -8,5 +8,6 @@ namespace NutritionalKitchen.Domain.Package
 {
     public interface IPackageFactory
     {
+        Package Create(string status, Guid labelId);
     }
 }

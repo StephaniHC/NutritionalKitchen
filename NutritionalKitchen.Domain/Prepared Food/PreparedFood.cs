@@ -9,8 +9,10 @@ namespace NutritionalKitchen.Domain.PreparedFood
 {
     public class PreparedFood : AggregateRoot
     {
-        public PreparedFood(Guid id) : base(id)
+        public Guid IdKitchenTask { get; private set; }
+        public PreparedFood(Guid idKitchenTask) : base(Guid.NewGuid())
         {
+            IdKitchenTask = idKitchenTask;
         }
     }
 }

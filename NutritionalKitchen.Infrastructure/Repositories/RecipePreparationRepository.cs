@@ -22,5 +22,20 @@ namespace NutritionalKitchen.Infrastructure.Repositories
         {
             await _dbContext.RecipePreparation.AddAsync(entity);
         }
+
+        public Task DeleteAsync(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<RecipePreparation?> GetByIdAsync(Guid id, bool readOnly = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task UpdateAsync(RecipePreparation recipePreparation)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

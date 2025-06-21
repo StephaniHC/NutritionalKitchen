@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace NutritionalKitchen.Domain.Package
 {
-    public class PackageFactory
+    public class PackageFactory : IPackageFactory
     {
+        public Package Create(string status, Guid labelId)
+        { 
+            Package package = new Package(status, labelId);
+            return package;
+        }
     }
 }

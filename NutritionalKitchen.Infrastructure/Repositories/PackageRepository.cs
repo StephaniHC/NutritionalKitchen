@@ -21,5 +21,20 @@ namespace NutritionalKitchen.Infrastructure.Repositories
         {
             await _dbContext.Package.AddAsync(entity);
         }
+
+        public Task DeleteAsync(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Package?> GetByIdAsync(Guid id, bool readOnly = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task UpdateAsync(Package package)
+        {
+            throw new NotImplementedException();
+        }
     } 
 }

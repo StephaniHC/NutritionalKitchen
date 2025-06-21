@@ -10,5 +10,18 @@ namespace NutritionalKitchen.Infrastructure.DomainModel.config
 {
     public class PreparedFoodConfig : IEntityTypeConfiguration<PreparedFood>
     {
+        public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<PreparedFood> builder)
+        {
+            builder.ToTable("ingredients");
+
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.Id)
+                .HasColumnName("Id");
+
+            builder.Property(x => x.IdKitchenTask)
+                .HasColumnName("IdKitchenTask");
+
+        }
     }
 }

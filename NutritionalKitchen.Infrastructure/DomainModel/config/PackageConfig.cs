@@ -10,5 +10,21 @@ namespace NutritionalKitchen.Infrastructure.DomainModel.config
 {
     public class PackageConfig : IEntityTypeConfiguration<Package>
     {
+        public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<Package> builder)
+        {
+            builder.ToTable("ingredients");
+
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.Id)
+                .HasColumnName("Id");
+
+            builder.Property(x => x.Status)
+                .HasColumnName("Status");
+
+            builder.Property(x => x.LabelId)
+                .HasColumnName("LabelId");
+
+        } 
     }
 }

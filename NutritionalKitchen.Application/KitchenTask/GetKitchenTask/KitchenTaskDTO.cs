@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace NutritionalKitchen.Application.KitchenTask.GetKitchenTask
 {
-    internal class KitchenTaskDTO
+    public class KitchenTaskDTO
     {
+        public Guid Id { get; set; }
+        public string Description { get; set; }
+        public string Status { get; set; }
+        public string Kitchener { get; set; }
+        public DateTime PreparationDate { get; set; }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NutritionalKitchen.Infrastructure.StoredModel.Entities
 {
-    [Table("recipePreparation")]
+    [Table("RecipePreparation")]
     public class RecipePreparationStoredModel
     {
         [Key]

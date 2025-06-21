@@ -8,5 +8,6 @@ namespace NutritionalKitchen.Domain.PreparedFood
 {
     public interface IPreparedFoodFactory
     {
+        PreparedFood Create(Guid idKitchenTask);
     }
 }

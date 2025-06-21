@@ -1,12 +1,12 @@
-﻿using System;
+﻿using MediatR;
+using NutritionalKitchen.Application.Package.GetPackage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace NutritionalKitchen.Application.PreparedFood.GetPreparedFood
-{
-    internal class GetPreparedFoodQuery
-    {
-    }
+{ 
+    public record GetPreparedFoodQuery(string SearchTerm) : IRequest<IEnumerable<PreparedFoodDTO>>;
 }

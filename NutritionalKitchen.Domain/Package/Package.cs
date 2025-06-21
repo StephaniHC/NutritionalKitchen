@@ -8,25 +8,14 @@ using System.Threading.Tasks;
 namespace NutritionalKitchen.Domain.Package
 {
     public class Package : AggregateRoot
-    {
+    { 
         public string Status { get; private set; }
-        public string BatchCode { get; private set; }
-        public Guid PreparedRecipeId { get; private set; }
         public Guid LabelId { get; private set; }
-        public Package(string status, string batchCode, Guid preparedRecipeId, Guid labelId) : base(Guid.NewGuid())
+        public Package(string status, Guid labelId) : base(Guid.NewGuid())
         {
-            Status = status;
-            BatchCode = batchCode;
-            PreparedRecipeId = preparedRecipeId;
+            Status = status; 
             LabelId = labelId;
         }
-
-        public void UpdateStatus(string newStatus)
-        {
-            var validStatuses = new[] { "Pending", "InProgress", "Completed", "Canceled" };
-            if (!validStatuses.Contains(newStatus))
-                throw new ArgumentException("El estado especificado no es válido.");
-            Status = newStatus;
-        }
+         
     }
 }
