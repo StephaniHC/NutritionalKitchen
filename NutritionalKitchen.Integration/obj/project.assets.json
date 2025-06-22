@@ -1,11 +1,38 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "Joseco.Communication.External.Contracts/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Joseco.Communication.External.Contracts.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/Joseco.Communication.External.Contracts.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Joseco.Communication.External.Contracts/1.0.1": {
+      "sha512": "bVsyk5nY68zOLeQGsdQLopQJDNRhSlMcVk2WmAaS0OYea7wyePFXVC2tNWkYmHTcSOALN+Ihw029fL+lx2rzgQ==",
+      "type": "package",
+      "path": "joseco.communication.external.contracts/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "joseco.communication.external.contracts.1.0.1.nupkg.sha512",
+        "joseco.communication.external.contracts.nuspec",
+        "lib/net8.0/Joseco.Communication.External.Contracts.dll"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "Joseco.Communication.External.Contracts >= 1.0.1"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\steph\\.nuget\\packages\\": {},
@@ -57,6 +84,12 @@
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
+        "dependencies": {
+          "Joseco.Communication.External.Contracts": {
+            "target": "Package",
+            "version": "[1.0.1, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

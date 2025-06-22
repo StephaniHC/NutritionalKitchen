@@ -16,7 +16,7 @@ builder.Services.AddSwaggerGen(c =>
     {
         Title = "Kitchen Nutrition Microservice",
         Version = "v3.0",
-        Description = "API para administrar recetas, menus y requerimientos nutricionales"
+        Description = "API para administrar el preparado de recetas y entrega de comidas"
     });
 });
 

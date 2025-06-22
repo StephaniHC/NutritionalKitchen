@@ -1,7 +1,8 @@
 ﻿using Joseco.Communication.External.RabbitMQ;
 using Joseco.Communication.External.RabbitMQ.Services;
 using Microsoft.Extensions.DependencyInjection;
-using NutritionalKitchen.Domain.Package;
+using NutritionalKitchen.Integration.Package;
+using NutritionalKitchen.Infrastructure.RabbitMQ.Consumers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,8 +18,8 @@ namespace NutritionalKitchen.Infrastructure.Extensions
             using var serviceProvider = services.BuildServiceProvider();
             var rabbitMqSettings = serviceProvider.GetRequiredService<RabbitMqSettings>();
 
-           // services.AddRabbitMQ(rabbitMqSettings)
-                //.AddRabbitMqConsumer<Package, PackageConsumer>("nutritionalkitchen-labeled-package");
+            services.AddRabbitMQ(rabbitMqSettings)
+                .AddRabbitMqConsumer<Package, PackageConsumer>("nutritionalkitchen-labeled-package");
 
             return services;
         }

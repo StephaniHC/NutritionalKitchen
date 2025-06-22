@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "BX2PyPo198o=",
+  "dgSpecHash": "3utn9rCdMVc=",
   "success": true,
   "projectFilePath": "C:\\Users\\steph\\Documents\\DiploNur\\PresentacionFinal\\git\\NutritionalKitchen\\NutritionalKitchen.Integration\\NutritionalKitchen.Integration.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\steph\\.nuget\\packages\\joseco.communication.external.contracts\\1.0.1\\joseco.communication.external.contracts.1.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
