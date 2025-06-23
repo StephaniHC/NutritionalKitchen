@@ -12,7 +12,7 @@ namespace NutritionalKitchen.Infrastructure.DomainModel.config
     {
         public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<PreparedFood> builder)
         {
-            builder.ToTable("ingredients");
+            builder.ToTable("PreparedFood");
 
             builder.HasKey(x => x.Id);
 

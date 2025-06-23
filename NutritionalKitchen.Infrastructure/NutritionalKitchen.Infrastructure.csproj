@@ -14,8 +14,8 @@
     <PackageReference Include="Joseco.Communication.External.RabbitMQ" Version="1.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.5" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
+	<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.5" /> 
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\NutritionalKitchen.Application\NutritionalKitchen.Application.csproj" />
     <ProjectReference Include="..\NutritionalKitchen.Integration\NutritionalKitchen.Integration.csproj" />
