@@ -20,15 +20,21 @@ namespace NutritionalKitchen.WebApi.Controllers
         public async Task<ActionResult> CreateKitchenTask([FromBody] CreatePackageCommand command)
         {
             try
-            {
-                //SentrySdk.CaptureMessage("Request executed successfully.");
-                var id = await _mediator.Send(command);
+            { 
+                var id = await _mediator.Send(command); 
+                SentrySdk.CaptureMessage($"[Package] Paquete creado exitosamente. ID: {id}", SentryLevel.Info); 
+
                 return Ok(id);
 
             }
             catch (Exception ex)
             {
-                SentrySdk.CaptureException(ex);
+                SentrySdk.CaptureException(ex, scope =>
+                {
+                    scope.SetTag("endpoint", "POST /api/Package");
+                    scope.SetExtra("command", command);
+                    scope.Fingerprint = new[] { "package_create", ex.GetType().ToString() };
+                });
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -37,14 +43,19 @@ namespace NutritionalKitchen.WebApi.Controllers
         public async Task<ActionResult> GetKitchenTask()
         {
             try
-            {
-                //SentrySdk.CaptureMessage("Request executed successfully.");
+            { 
                 var result = await _mediator.Send(new GetPackageQuery(""));
+                SentrySdk.CaptureMessage($"[Package] Consulta de paquetes realizada. Total: {result.Count()}", SentryLevel.Info);
+
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                //SentrySdk.CaptureException(ex);
+                SentrySdk.CaptureException(ex, scope =>
+                {
+                    scope.SetTag("endpoint", "GET /api/Package");
+                    scope.Fingerprint = new[] { "package_get", ex.GetType().ToString() };
+                });
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }

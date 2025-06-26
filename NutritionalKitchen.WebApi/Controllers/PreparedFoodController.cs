@@ -20,15 +20,21 @@ namespace NutritionalKitchen.WebApi.Controllers
         public async Task<ActionResult> CreateKitchenTask([FromBody] CreatePreparedFoodCommand command)
         {
             try
-            {
-                //SentrySdk.CaptureMessage("Request executed successfully.");
+            { 
                 var id = await _mediator.Send(command);
+                SentrySdk.CaptureMessage($"[PreparedFood] Comida preparada creada exitosamente. ID: {id}", SentryLevel.Info);
+
                 return Ok(id);
 
             }
             catch (Exception ex)
             {
-                SentrySdk.CaptureException(ex);
+                SentrySdk.CaptureException(ex, scope =>
+                {
+                    scope.SetTag("endpoint", "POST /api/PreparedFood");
+                    scope.SetExtra("command", command);
+                    scope.Fingerprint = new[] { "preparedfood_create", ex.GetType().ToString() };
+                });
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -37,14 +43,19 @@ namespace NutritionalKitchen.WebApi.Controllers
         public async Task<ActionResult> GetKitchenTask()
         {
             try
-            {
-                //SentrySdk.CaptureMessage("Request executed successfully.");
+            { 
                 var result = await _mediator.Send(new GetPreparedFoodQuery(""));
+                SentrySdk.CaptureMessage($"[PreparedFood] Consulta de comidas preparadas realizada. Total: {result.Count()}", SentryLevel.Info);
+
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                //SentrySdk.CaptureException(ex);
+                SentrySdk.CaptureException(ex, scope =>
+                {
+                    scope.SetTag("endpoint", "GET /api/PreparedFood");
+                    scope.Fingerprint = new[] { "preparedfood_get", ex.GetType().ToString() };
+                });
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }

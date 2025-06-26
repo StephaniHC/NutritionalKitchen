@@ -19,14 +19,20 @@ namespace NutritionalKitchen.WebApi.Controllers
         {
             try
             {
-                //SentrySdk.CaptureMessage("Request executed successfully.");
                 var id = await _mediator.Send(command);
+                SentrySdk.CaptureMessage($"[KitchenTask] Tarea de cocina creada exitosamente. ID: {id}", SentryLevel.Info);
+
                 return Ok(id);
 
             }
             catch (Exception ex)
             {
-                SentrySdk.CaptureException(ex);
+                SentrySdk.CaptureException(ex, scope =>
+                {
+                    scope.SetTag("endpoint", "POST /api/KitchenTask");
+                    scope.SetExtra("command", command);
+                    scope.Fingerprint = new[] { "kitchen_task_create", ex.GetType().ToString() };
+                });
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -36,13 +42,18 @@ namespace NutritionalKitchen.WebApi.Controllers
         {
             try
             {
-                //SentrySdk.CaptureMessage("Request executed successfully.");
                 var result = await _mediator.Send(new GetKitchenTaskQuery(""));
+                SentrySdk.CaptureMessage($"[KitchenTask] Consulta de tareas realizada. Total: {result.Count()}", SentryLevel.Info);
+
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                //SentrySdk.CaptureException(ex);
+                SentrySdk.CaptureException(ex, scope =>
+                {
+                    scope.SetTag("endpoint", "GET /api/KitchenTask");
+                    scope.Fingerprint = new[] { "kitchen_task_get", ex.GetType().ToString() };
+                });
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }

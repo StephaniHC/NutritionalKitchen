@@ -20,15 +20,21 @@ namespace NutritionalKitchen.WebApi.Controllers
         public async Task<ActionResult> CreateKitchenTask([FromBody] CreateLabelCommand command)
         {
             try
-            {
-                //SentrySdk.CaptureMessage("Request executed successfully.");
+            {  
                 var id = await _mediator.Send(command);
+                SentrySdk.CaptureMessage($"[Label] Etiqueta creada exitosamente. ID: {id}", SentryLevel.Info);
+
                 return Ok(id);
 
             }
             catch (Exception ex)
             {
-                SentrySdk.CaptureException(ex);
+                SentrySdk.CaptureException(ex, scope =>
+                {
+                    scope.SetTag("endpoint", "POST /api/Label");
+                    scope.SetExtra("command", command);
+                    scope.Fingerprint = new[] { "label_create", ex.GetType().ToString() };
+                });
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
@@ -37,14 +43,19 @@ namespace NutritionalKitchen.WebApi.Controllers
         public async Task<ActionResult> GetKitchenTask()
         {
             try
-            {
-                //SentrySdk.CaptureMessage("Request executed successfully.");
+            { 
                 var result = await _mediator.Send(new GetLabelQuery(""));
+                SentrySdk.CaptureMessage($"[Label] Consulta de etiquetas realizada. Total: {result.Count()}", SentryLevel.Info);
+
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                //SentrySdk.CaptureException(ex);
+                SentrySdk.CaptureException(ex, scope =>
+                {
+                    scope.SetTag("endpoint", "GET /api/Label");
+                    scope.Fingerprint = new[] { "label_get", ex.GetType().ToString() };
+                });
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
