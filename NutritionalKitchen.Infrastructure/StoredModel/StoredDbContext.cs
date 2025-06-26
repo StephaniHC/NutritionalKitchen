@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Joseco.Outbox.EFCore.Persistence;
+using NutritionalKitchen.Domain.Abstractions;
 using NutritionalKitchen.Infrastructure.StoredModel.Entities;
 using System;
 using System.Collections.Generic;
@@ -19,6 +21,17 @@ namespace NutritionalKitchen.Infrastructure.StoredModel
         public StoredDbContext(DbContextOptions<StoredDbContext> options) : base(options)
         {
 
+        } 
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.AddOutboxModel<DomainEvent>();
+        }
+
+        public void Migrate()
+        {
+            Database.Migrate();
         }
     }
 }

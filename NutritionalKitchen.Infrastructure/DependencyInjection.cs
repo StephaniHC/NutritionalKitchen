@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Joseco.Outbox.EFCore;
+using Joseco.Outbox.EFCore.Persistence;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection; 
 using Microsoft.Extensions.Hosting;
@@ -13,13 +15,13 @@ using NutritionalKitchen.Infrastructure.Repositories;
 using NutritionalKitchen.Infrastructure.StoredModel;
 using NutritionalKitchen.Infrastructure.Extensions;
 using System.Reflection;
-using NutritionalKitchen.Application;
+using NutritionalKitchen.Application; 
 
 namespace NutritionalKitchen.Infrastructure
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration, IHostEnvironment environment)
+        public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration, IHostEnvironment environment, string serviceName)
         {
             services.AddMediatR(config =>
                     config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly())
@@ -28,14 +30,15 @@ namespace NutritionalKitchen.Infrastructure
             services.AddDbContext<StoredDbContext>(context =>
                     context.UseNpgsql(connectionString));
             services.AddDbContext<DomainDbContext>(context =>
-                    context.UseNpgsql(connectionString));
+                    context.UseNpgsql(connectionString)); 
 
-            services.AddScoped<IKitchenTaskRepository, KitchenTaskRepository>();
-            services.AddScoped<ILabelRepository, LabelRepository>();
-            services.AddScoped<IPackageRepository, PackageRepository>();
-            services.AddScoped<IPreparedFoodRepository, PreparedFoodRepository>();
-            services.AddScoped<IRecipePreparationRepository, RecipePreparationRepository>();
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IKitchenTaskRepository, KitchenTaskRepository>()
+                    .AddScoped<ILabelRepository, LabelRepository>()
+                    .AddScoped<IPackageRepository, PackageRepository>()
+                    .AddScoped<IPreparedFoodRepository, PreparedFoodRepository>()
+                    .AddScoped<IRecipePreparationRepository, RecipePreparationRepository>()
+                    .AddScoped<IUnitOfWork, UnitOfWork>()
+                    .AddOutbox<DomainEvent>();
 
             services.AddAplication()
                 .AddSecrets(configuration, environment)

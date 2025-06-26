@@ -62,6 +62,38 @@
           "lib/net8.0/Joseco.Communication.External.RabbitMQ.dll": {}
         }
       },
+      "Joseco.Outbox.Contracts/1.0.2": {
+        "type": "package",
+        "dependencies": {
+          "MediatR.Contracts": "2.0.1"
+        },
+        "compile": {
+          "lib/net8.0/Joseco.Outbox.Contracts.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/Joseco.Outbox.Contracts.dll": {}
+        }
+      },
+      "Joseco.Outbox.EFCore/1.0.4": {
+        "type": "package",
+        "dependencies": {
+          "Joseco.Outbox.Contracts": "1.0.2",
+          "MediatR": "12.4.1",
+          "Microsoft.EntityFrameworkCore": "9.0.3",
+          "Microsoft.EntityFrameworkCore.Relational": "9.0.3",
+          "Microsoft.Extensions.Hosting": "9.0.3",
+          "Newtonsoft.Json": "13.0.3",
+          "OpenTelemetry": "1.12.0",
+          "OpenTelemetry.Api": "1.12.0",
+          "System.Diagnostics.DiagnosticSource": "9.0.5"
+        },
+        "compile": {
+          "lib/net8.0/Joseco.Outbox.EFCore.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/Joseco.Outbox.EFCore.dll": {}
+        }
+      },
       "MediatR/12.5.0": {
         "type": "package",
         "dependencies": {
@@ -1847,6 +1879,9 @@
       "NutritionalKitchen.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "MediatR.Contracts": "2.0.1"
+        },
         "compile": {
           "bin/placeholder/NutritionalKitchen.Domain.dll": {}
         },
@@ -1859,8 +1894,10 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "Joseco.Communication.External.RabbitMQ": "1.0.2",
+          "Joseco.Outbox.EFCore": "1.0.4",
           "Microsoft.EntityFrameworkCore": "9.0.5",
           "Microsoft.EntityFrameworkCore.Design": "9.0.5",
+          "Microsoft.EntityFrameworkCore.Relational": "9.0.5",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.4",
           "NutritionalKitchen.Application": "1.0.0",
           "NutritionalKitchen.Integration": "1.0.0"
@@ -1949,6 +1986,34 @@
         "joseco.communication.external.rabbitmq.1.0.2.nupkg.sha512",
         "joseco.communication.external.rabbitmq.nuspec",
         "lib/net8.0/Joseco.Communication.External.RabbitMQ.dll"
+      ]
+    },
+    "Joseco.Outbox.Contracts/1.0.2": {
+      "sha512": "5gKj/3OEg/TWyg8Z0IJE9FU7GSQrZ425/3DpiPCNrXXZH5ss5ds36uuImJEHOrrruIzHfTaAHiprPosuHxeLZw==",
+      "type": "package",
+      "path": "joseco.outbox.contracts/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "joseco.outbox.contracts.1.0.2.nupkg.sha512",
+        "joseco.outbox.contracts.nuspec",
+        "lib/net8.0/Joseco.Outbox.Contracts.dll"
+      ]
+    },
+    "Joseco.Outbox.EFCore/1.0.4": {
+      "sha512": "uwrTG4pOtXZAtNKTF5FBBy61rha7EOxHdVcR0cVPEFg5LGedO9vgIZU9eZLnN2hEA49litecDjCrAeExDTglGg==",
+      "type": "package",
+      "path": "joseco.outbox.efcore/1.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "joseco.outbox.efcore.1.0.4.nupkg.sha512",
+        "joseco.outbox.efcore.nuspec",
+        "lib/net8.0/Joseco.Outbox.EFCore.dll"
       ]
     },
     "MediatR/12.5.0": {
@@ -5223,24 +5288,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\steph\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\stephani.heredia\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\steph\\Documents\\DiploNur\\PresentacionFinal\\git\\NutritionalKitchen\\NutritionalKitchen.WebApi\\NutritionalKitchen.WebApi.csproj",
+      "projectUniqueName": "C:\\Users\\stephani.heredia\\Downloads\\Backend-microservicioKitchen\\NutritionalKitchen\\NutritionalKitchen.WebApi\\NutritionalKitchen.WebApi.csproj",
       "projectName": "NutritionalKitchen.WebApi",
-      "projectPath": "C:\\Users\\steph\\Documents\\DiploNur\\PresentacionFinal\\git\\NutritionalKitchen\\NutritionalKitchen.WebApi\\NutritionalKitchen.WebApi.csproj",
-      "packagesPath": "C:\\Users\\steph\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\steph\\Documents\\DiploNur\\PresentacionFinal\\git\\NutritionalKitchen\\NutritionalKitchen.WebApi\\obj\\",
+      "projectPath": "C:\\Users\\stephani.heredia\\Downloads\\Backend-microservicioKitchen\\NutritionalKitchen\\NutritionalKitchen.WebApi\\NutritionalKitchen.WebApi.csproj",
+      "packagesPath": "C:\\Users\\stephani.heredia\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\stephani.heredia\\Downloads\\Backend-microservicioKitchen\\NutritionalKitchen\\NutritionalKitchen.WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\steph\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\stephani.heredia\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5248,15 +5312,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\steph\\Documents\\DiploNur\\PresentacionFinal\\git\\NutritionalKitchen\\NutritionalKitchen.Infrastructure\\NutritionalKitchen.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\steph\\Documents\\DiploNur\\PresentacionFinal\\git\\NutritionalKitchen\\NutritionalKitchen.Infrastructure\\NutritionalKitchen.Infrastructure.csproj"
+            "C:\\Users\\stephani.heredia\\Downloads\\Backend-microservicioKitchen\\NutritionalKitchen\\NutritionalKitchen.Infrastructure\\NutritionalKitchen.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\stephani.heredia\\Downloads\\Backend-microservicioKitchen\\NutritionalKitchen\\NutritionalKitchen.Infrastructure\\NutritionalKitchen.Infrastructure.csproj"
             }
           }
         }
@@ -5270,8 +5333,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.300"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -5319,7 +5381,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

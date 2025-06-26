@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "u9ofOj9U3ys=",
+  "dgSpecHash": "vyK1GI6v/Wfx3oaXUniYsDNQQr4UHqpdgYfiZFiUStX/M3gm82XQ/MbK3D4uSkn2wtEMMhtSf58eyGKMYJphuA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\steph\\Documents\\DiploNur\\PresentacionFinal\\git\\NutritionalKitchen\\NutritionalKitchen.Domain\\NutritionalKitchen.Domain.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\stephani.heredia\\Downloads\\Backend-microservicioKitchen\\NutritionalKitchen\\NutritionalKitchen.Domain\\NutritionalKitchen.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\stephani.heredia\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

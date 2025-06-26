@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "h1N5tP+9Vtk=",
+  "dgSpecHash": "uHWYpQccJbg+h8OtkW/xb5SjejtN/KtlYpCGgih7/QdBb7C8P7GRlOUHevE+JzrpltGv4YPubQEe1/mYl3E3oA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\steph\\Documents\\DiploNur\\PresentacionFinal\\git\\NutritionalKitchen\\NutritionalKitchen.Application\\NutritionalKitchen.Application.csproj",
+  "projectFilePath": "C:\\Users\\stephani.heredia\\Downloads\\Backend-microservicioKitchen\\NutritionalKitchen\\NutritionalKitchen.Application\\NutritionalKitchen.Application.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\steph\\.nuget\\packages\\mediatr\\12.5.0\\mediatr.12.5.0.nupkg.sha512",
-    "C:\\Users\\steph\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
-    "C:\\Users\\steph\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+    "C:\\Users\\stephani.heredia\\.nuget\\packages\\mediatr\\12.5.0\\mediatr.12.5.0.nupkg.sha512",
+    "C:\\Users\\stephani.heredia\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\stephani.heredia\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
   ],
   "logs": []
 }
