@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NutritionalKitchen.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fc0556426fd6db37bce1f6f77bd71f8813381906")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3698b091deddda1e7cfcbc838c93aca5f0ed9b1a")]
 [assembly: System.Reflection.AssemblyProductAttribute("NutritionalKitchen.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NutritionalKitchen.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
