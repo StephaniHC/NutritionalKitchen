@@ -24,6 +24,7 @@
     <ProjectReference Include="..\NutritionalKitchen.Application\NutritionalKitchen.Application.csproj" />
     <ProjectReference Include="..\NutritionalKitchen.Domain\NutritionalKitchen.Domain.csproj" />
     <ProjectReference Include="..\NutritionalKitchen.Infrastructure\NutritionalKitchen.Infrastructure.csproj" />
+    <ProjectReference Include="..\NutritionalKitchen.Integration\NutritionalKitchen.Integration.csproj" />
     <ProjectReference Include="..\NutritionalKitchen.WebApi\NutritionalKitchen.WebApi.csproj" />
   </ItemGroup>
 
