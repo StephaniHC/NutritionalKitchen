@@ -15,10 +15,12 @@ using NutritionalKitchen.Infrastructure.Repositories;
 using NutritionalKitchen.Infrastructure.StoredModel;
 using NutritionalKitchen.Infrastructure.Extensions;
 using System.Reflection;
-using NutritionalKitchen.Application; 
+using NutritionalKitchen.Application;
+using System.Diagnostics.CodeAnalysis;
 
 namespace NutritionalKitchen.Infrastructure
 {
+    [ExcludeFromCodeCoverage]
     public static class DependencyInjection
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration, IHostEnvironment environment, string serviceName)

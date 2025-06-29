@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace NutritionalKitchen.Infrastructure.Migrations
 {
     /// <inheritdoc />
+    [ExcludeFromCodeCoverage]
     public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
