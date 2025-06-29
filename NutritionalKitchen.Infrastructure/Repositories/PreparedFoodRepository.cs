@@ -1,4 +1,4 @@
-﻿using NutritionalKitchen.Domain.Package;
+﻿using Microsoft.EntityFrameworkCore;
 using NutritionalKitchen.Domain.PreparedFood; 
 using NutritionalKitchen.Infrastructure.DomainModel;
 using System;
@@ -23,19 +23,22 @@ namespace NutritionalKitchen.Infrastructure.Repositories
             await _dbContext.PreparedFood.AddAsync(entity);
         }
 
-        public Task DeleteAsync(Guid id)
+        public async Task DeleteAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var obj = await GetByIdAsync(id);
+            _dbContext.PreparedFood.Remove(obj);
         }
 
-        public Task<PreparedFood?> GetByIdAsync(Guid id, bool readOnly = false)
+        public async Task<PreparedFood?> GetByIdAsync(Guid id, bool readOnly = false)
         {
-            throw new NotImplementedException();
+            return await _dbContext.PreparedFood.FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public Task UpdateAsync(PreparedFood preparedFood)
         {
-            throw new NotImplementedException();
+            _dbContext.PreparedFood.Update(preparedFood);
+
+            return Task.CompletedTask;
         }
     }
 }

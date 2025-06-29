@@ -18,13 +18,14 @@ namespace NutritionalKitchen.Domain.Abstractions
                 return _domainEvents;
             }
         }
-        public Entity(Guid id)
+        public Entity(Guid id) 
         {
             if (id == Guid.Empty)
             {
                 throw new ArgumentException("Id cannot be empty", nameof(id));
             }
             Id = id;
+            _domainEvents = new List<DomainEvent>();
         }
         public void AddDomainEvent(DomainEvent domainEvent)
         {

@@ -1,4 +1,5 @@
-﻿using NutritionalKitchen.Domain.Package;
+﻿using Microsoft.EntityFrameworkCore;
+using NutritionalKitchen.Domain.Package;
 using NutritionalKitchen.Infrastructure.DomainModel;
 using System;
 using System.Collections.Generic;
@@ -22,19 +23,22 @@ namespace NutritionalKitchen.Infrastructure.Repositories
             await _dbContext.Package.AddAsync(entity);
         }
 
-        public Task DeleteAsync(Guid id)
+        public async Task DeleteAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var obj = await GetByIdAsync(id);
+            _dbContext.Package.Remove(obj);
         }
 
-        public Task<Package?> GetByIdAsync(Guid id, bool readOnly = false)
+        public async Task<Package?> GetByIdAsync(Guid id, bool readOnly = false)
         {
-            throw new NotImplementedException();
+            return await _dbContext.Package.FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public Task UpdateAsync(Package package)
         {
-            throw new NotImplementedException();
+            _dbContext.Package.Update(package);
+
+            return Task.CompletedTask;
         }
     } 
 }

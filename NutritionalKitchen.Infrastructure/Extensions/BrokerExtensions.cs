@@ -1,16 +1,18 @@
 ﻿using Joseco.Communication.External.RabbitMQ;
 using Joseco.Communication.External.RabbitMQ.Services;
 using Microsoft.Extensions.DependencyInjection;
-using NutritionalKitchen.Integration.Package;
 using NutritionalKitchen.Infrastructure.RabbitMQ.Consumers;
+using NutritionalKitchen.Integration.Package;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace NutritionalKitchen.Infrastructure.Extensions
 {
+    [ExcludeFromCodeCoverage]
     public static class BrokerExtensions
     {
         public static IServiceCollection AddRabbitMQ(this IServiceCollection services)
