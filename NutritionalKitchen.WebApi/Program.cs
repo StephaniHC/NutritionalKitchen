@@ -1,4 +1,4 @@
-
+  
 using NutritionalKitchen.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -50,3 +50,4 @@ app.UseEndpoints(endpoints =>
 app.MapControllers();
 
 app.Run();
+ 
