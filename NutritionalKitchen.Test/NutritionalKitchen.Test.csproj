@@ -36,4 +36,19 @@
     <Folder Include="Integration\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="ExecCodeCoverage.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ExecCodeCoverage.ps1</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ExecCodeCoverage.ps1">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ExecCodeCoverage.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
 </Project>

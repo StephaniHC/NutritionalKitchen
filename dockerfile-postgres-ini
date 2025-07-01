@@ -1,0 +1,10 @@
+# Use the base image postgres:latest
+FROM postgres:16
+
+# Set environment variables 
+ENV POSTGRES_DB=nutritionalKitchen
+ENV POSTGRES_USER=postgres
+ENV POSTGRES_PASSWORD=password
+
+# Copy custom scripts or configuration files from your host to the container
+COPY ./script-ini.sql /docker-entrypoint-initdb.d/

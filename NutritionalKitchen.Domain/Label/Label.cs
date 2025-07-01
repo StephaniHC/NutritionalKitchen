@@ -16,7 +16,9 @@ namespace NutritionalKitchen.Domain.Label
         public string Address { get; private set; }
         public Guid ContractId { get; private set; }
         public Guid PatientId { get; private set; }
-        public Label(DateTime productionDate, DateTime expirationDate, DateTime deliberyDate, string detail, string address, Guid contractId, Guid patientId) : base(Guid.NewGuid())
+        public Guid DeliberyId { get; private set; }
+        public bool Status { get; private set; }
+        public Label(DateTime productionDate, DateTime expirationDate, DateTime deliberyDate, string detail, string address, Guid contractId, Guid patientId, Guid deliberyId, bool status) : base(Guid.NewGuid())
         {
             ProductionDate = productionDate;
             ExpirationDate = expirationDate;
@@ -25,6 +27,12 @@ namespace NutritionalKitchen.Domain.Label
             Address = address;
             ContractId = contractId;
             PatientId = patientId;
+            DeliberyId = deliberyId;
+            Status = status;
+        }
+        public void Update(string address)
+        {  
+            Address = address;
         }
     }
 }

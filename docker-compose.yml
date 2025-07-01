@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  # Servicio de tu aplicación .NET
+  nutritional-kitchen: 
+    image: stephaniheredia/microservicio-nutritional-kitchen:latest 
+    container_name: nutritional-kitchen
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres-db;Database=nutritionalKitchen;Username=postgres;Password=password
+      - RabbitMqSettings__Host=host.docker.internal
+      - RabbitMqSettings__UserName=storeUser
+      - RabbitMqSettings__Passwordt=storeUserPassword
+      - RabbitMqSettings__VirtualHost=/
+    ports:
+      - 5075:5075  
+    depends_on:
+      - postgres-db
+    networks:
+      - nutritional-network 
+  # Servicio de la base de datos postgresql
+  postgres-db: 
+    image: stephaniheredia/nutritionalkitchendb:latest
+    container_name: nutritionalkitchen-db 
+    environment:
+      - POSTGRES_DB=nutritionalKitchen
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password 
+    ports:
+      - 5435:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres", "-d", "nutritionalKitchen"]
+      interval: 10s
+      retries: 5
+      start_period: 20s
+    networks:
+      - nutritional-network 
+
+networks:
+  nutritional-network:
+    driver: bridge
+
+volumes:
+  postgres_data:

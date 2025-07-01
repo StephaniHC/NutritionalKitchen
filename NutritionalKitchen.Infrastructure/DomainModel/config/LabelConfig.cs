@@ -40,6 +40,12 @@ namespace NutritionalKitchen.Infrastructure.DomainModel.config
             builder.Property(x => x.PatientId)
                 .HasColumnName("PatientId");
 
+            builder.Property(x => x.DeliberyId)
+                .HasColumnName("DeliberyId");
+
+            builder.Property(x => x.Status)
+                .HasColumnName("Status");
+
         } 
     }
 }

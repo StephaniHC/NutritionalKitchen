@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 
 namespace NutritionalKitchen.Application.Label.CreateLabel
 { 
-    public record CreateLabelCommand(DateTime productionDate, DateTime expirationDate, DateTime deliberyDate, string detail, string address, Guid contractId, Guid patientId) : IRequest<Guid>;
+    public record CreateLabelCommand(DateTime productionDate, DateTime expirationDate, DateTime deliberyDate, string detail, string address, Guid contractId, Guid patientId, Guid deliberyId, bool status) : IRequest<Guid>;
 
 }

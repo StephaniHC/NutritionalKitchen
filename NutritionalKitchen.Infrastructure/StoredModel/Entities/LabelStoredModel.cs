@@ -42,5 +42,14 @@ namespace NutritionalKitchen.Infrastructure.StoredModel.Entities
         [Required]
         public Guid PatientId { get; set; }
 
+        [Column("DeliberyId")]
+        [Required]
+        public Guid DeliberyId { get; set; }
+
+        [Column("Status")]
+        [StringLength(256)]
+        [Required]
+        public bool Status { get; set; }
+
     }
 }

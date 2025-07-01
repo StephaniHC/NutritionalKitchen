@@ -8,6 +8,6 @@ namespace NutritionalKitchen.Domain.Label
 {
     public interface ILabelFactory
     {
-        Label Create(DateTime productionDate, DateTime expirationDate, DateTime deliberyDate, string detail, string address, Guid contractId, Guid patientId);
+        Label Create(DateTime productionDate, DateTime expirationDate, DateTime deliberyDate, string detail, string address, Guid contractId, Guid patientId, Guid deliberyDay, bool status);
     }
 }

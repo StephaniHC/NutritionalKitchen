@@ -29,7 +29,7 @@ namespace NutritionalKitchen.Application.Label.CreateLabel
 
         public async Task<Guid> Handle(CreateLabelCommand request, CancellationToken cancellationToken)
         {
-            var label = _labelFactory.Create(request.productionDate, request.expirationDate, request.deliberyDate, request.detail, request.address, request.contractId, request.patientId);
+            var label = _labelFactory.Create(request.productionDate, request.expirationDate, request.deliberyDate, request.detail, request.address, request.contractId, request.patientId, request.deliberyId, request.status);
 
             await _labelRepository.AddAsync(label);
 
