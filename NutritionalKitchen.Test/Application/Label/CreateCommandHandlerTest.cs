@@ -23,7 +23,9 @@ namespace NutritionalKitchen.Test.Application.Label
             var detail = "Etiqueta para paciente con dieta líquida";
             var address = "Calle 123";
             var contractId = Guid.NewGuid();
-            var patientId = Guid.NewGuid();
+            var patientId = Guid.NewGuid(); 
+            var deliberyId = Guid.NewGuid();
+            var status = true;
 
             var command = new CreateLabelCommand(
                 productionDate,
@@ -32,7 +34,9 @@ namespace NutritionalKitchen.Test.Application.Label
                 detail,
                 address,
                 contractId,
-                patientId
+                patientId,
+                deliberyId,
+                status
             );
 
             var mockLabelFactory = new Mock<ILabelFactory>();
@@ -46,11 +50,13 @@ namespace NutritionalKitchen.Test.Application.Label
                 detail,
                 address,
                 contractId,
-                patientId
+                patientId,
+                deliberyId,
+                status
             );
 
             mockLabelFactory
-                .Setup(f => f.Create(productionDate, expirationDate, deliberyDate, detail, address, contractId, patientId))
+                .Setup(f => f.Create(productionDate, expirationDate, deliberyDate, detail, address, contractId, patientId, deliberyId, status))
                 .Returns(createdLabel);
 
             var handler = new CreateCommandHandler(
@@ -63,7 +69,7 @@ namespace NutritionalKitchen.Test.Application.Label
             var result = await handler.Handle(command, CancellationToken.None);
 
             // Assert  
-            mockLabelFactory.Verify(f => f.Create(productionDate, expirationDate, deliberyDate, detail, address, contractId, patientId), Times.Once);
+            mockLabelFactory.Verify(f => f.Create(productionDate, expirationDate, deliberyDate, detail, address, contractId, patientId, deliberyId, status), Times.Once);
             mockLabelRepository.Verify(r => r.AddAsync(createdLabel), Times.Once);
             mockUnitOfWork.Verify(u => u.CommitAsync(It.IsAny<CancellationToken>()), Times.Once);
         }

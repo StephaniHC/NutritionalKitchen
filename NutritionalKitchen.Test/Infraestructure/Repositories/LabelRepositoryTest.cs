@@ -37,7 +37,9 @@ namespace NutritionalKitchen.Test.Infraestructure.Repositories
                 detail: "detail",
                 address: "address",
                 contractId: Guid.NewGuid(),
-                patientId: Guid.NewGuid());
+                patientId: Guid.NewGuid(),
+                deliberyId: Guid.NewGuid(),
+                status: true);
 
             // Act
             await _repository.AddAsync(label);
@@ -57,7 +59,9 @@ namespace NutritionalKitchen.Test.Infraestructure.Repositories
                 detail: "detail",
                 address: "address",
                 contractId: Guid.NewGuid(),
-                patientId: Guid.NewGuid());
+                patientId: Guid.NewGuid(),
+                deliberyId: Guid.NewGuid(),
+                status: true);
 
             var labels = new List<Label> { label };
             _mockDbContext.Setup(db => db.Label).ReturnsDbSet(labels);
@@ -80,7 +84,9 @@ namespace NutritionalKitchen.Test.Infraestructure.Repositories
                 detail: "detail",
                 address: "address",
                 contractId: Guid.NewGuid(),
-                patientId: Guid.NewGuid());
+                patientId: Guid.NewGuid(),
+                deliberyId: Guid.NewGuid(),
+                status: true);
 
             var labels = new List<Label> { label };
             _mockDbContext.Setup(db => db.Label).ReturnsDbSet(labels);
@@ -121,7 +127,9 @@ namespace NutritionalKitchen.Test.Infraestructure.Repositories
                 detail: "detail",
                 address: "address",
                 contractId: Guid.NewGuid(),
-                patientId: Guid.NewGuid());
+                patientId: Guid.NewGuid(),
+                deliberyId: Guid.NewGuid(),
+                status: true);
 
             // Act
             await _repository.UpdateAsync(label);

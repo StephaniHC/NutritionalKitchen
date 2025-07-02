@@ -19,9 +19,11 @@ namespace NutritionalKitchen.Test.Domain.Label
             var address = "Av. Siempre Viva 742";
             var contractId = Guid.NewGuid();
             var patientId = Guid.NewGuid();
+            var deliberyId = Guid.NewGuid();
+            var status = true;
 
             // Act
-            var label = new NutritionalKitchen.Domain.Label.Label(productionDate, expirationDate, deliberyDate, detail, address, contractId, patientId);
+            var label = new NutritionalKitchen.Domain.Label.Label(productionDate, expirationDate, deliberyDate, detail, address, contractId, patientId, deliberyId, status);
 
             // Assert
             Assert.NotNull(label);

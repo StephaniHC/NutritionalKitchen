@@ -21,9 +21,11 @@ namespace NutritionalKitchen.Test.Domain.Label
             var address = "Calle Falsa 123";
             var contractId = Guid.NewGuid();
             var patientId = Guid.NewGuid();
+            var deliberyId = Guid.NewGuid();
+            var status = true;
 
             // Act
-            var result = factory.Create(productionDate, expirationDate, deliberyDate, detail, address, contractId, patientId);
+            var result = factory.Create(productionDate, expirationDate, deliberyDate, detail, address, contractId, patientId, deliberyId, status);
 
             // Assert
             Assert.NotNull(result);

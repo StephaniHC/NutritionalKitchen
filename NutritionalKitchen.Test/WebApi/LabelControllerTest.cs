@@ -34,7 +34,9 @@ namespace NutritionalKitchen.Test.WebApi
                 "Detalle de prueba",
                 "Av. Siempre Viva 123",
                 Guid.NewGuid(),
-                Guid.NewGuid()
+                Guid.NewGuid(),
+                Guid.NewGuid(),
+                true
             );
 
             var expectedId = Guid.NewGuid();
@@ -62,7 +64,9 @@ namespace NutritionalKitchen.Test.WebApi
                 "Detalle de error",
                 "Calle Falsa 456",
                 Guid.NewGuid(),
-                Guid.NewGuid()
+                Guid.NewGuid(),
+                Guid.NewGuid(),
+                true
             );
 
             _mediatorMock
