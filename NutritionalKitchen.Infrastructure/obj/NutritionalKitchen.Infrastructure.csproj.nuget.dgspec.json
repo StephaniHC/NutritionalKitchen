@@ -35,6 +35,9 @@
             "projectReferences": {
               "C:\\Users\\steph\\Documents\\DiploNur\\PresentacionFinal\\git\\NutritionalKitchen\\NutritionalKitchen.Domain\\NutritionalKitchen.Domain.csproj": {
                 "projectPath": "C:\\Users\\steph\\Documents\\DiploNur\\PresentacionFinal\\git\\NutritionalKitchen\\NutritionalKitchen.Domain\\NutritionalKitchen.Domain.csproj"
+              },
+              "C:\\Users\\steph\\Documents\\DiploNur\\PresentacionFinal\\git\\NutritionalKitchen\\NutritionalKitchen.Integration\\NutritionalKitchen.Integration.csproj": {
+                "projectPath": "C:\\Users\\steph\\Documents\\DiploNur\\PresentacionFinal\\git\\NutritionalKitchen\\NutritionalKitchen.Integration\\NutritionalKitchen.Integration.csproj"
               }
             }
           }
@@ -55,6 +58,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Joseco.Communication.External.Contracts": {
+              "target": "Package",
+              "version": "[1.0.1, )"
+            },
+            "Joseco.Outbox.Contracts": {
+              "target": "Package",
+              "version": "[1.0.2, )"
+            },
             "MediatR": {
               "target": "Package",
               "version": "[12.5.0, )"

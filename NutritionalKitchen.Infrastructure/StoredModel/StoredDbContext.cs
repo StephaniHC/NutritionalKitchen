@@ -1,16 +1,19 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Joseco.Outbox.EFCore.Persistence;
+﻿using Joseco.Outbox.EFCore.Persistence;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using NutritionalKitchen.Domain.Abstractions;
 using NutritionalKitchen.Infrastructure.StoredModel.Entities;
+using NutritionalKitchen.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IDatabase = NutritionalKitchen.Infrastructure.Repositories.IDatabase;
 
 namespace NutritionalKitchen.Infrastructure.StoredModel
 {
-    public class StoredDbContext : DbContext
+    public class StoredDbContext : DbContext, IDatabase
     {
         public virtual DbSet<KitchenTaskStoredModel> KitchenTask { get; set; }
         public virtual DbSet<LabelStoredModel> Label { get; set; }

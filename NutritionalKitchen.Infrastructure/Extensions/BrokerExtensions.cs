@@ -2,14 +2,15 @@
 using Joseco.Communication.External.RabbitMQ.Services;
 using Microsoft.Extensions.DependencyInjection;
 using NutritionalKitchen.Infrastructure.RabbitMQ.Consumers;
-using NutritionalKitchen.Integration.Package;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks; 
+using System.Threading.Tasks;
+using NutritionalKitchen.Integration.Package;
 using NutritionalKitchen.Integration.Labeled;
+using NutritionalKitchen.Integration.RecipePreparation;
 
 namespace NutritionalKitchen.Infrastructure.Extensions
 {
@@ -25,8 +26,8 @@ namespace NutritionalKitchen.Infrastructure.Extensions
                 .AddRabbitMqConsumer<Labeled, LabeledConsumer>("CalendarCreatedMessage")
                 .AddRabbitMqConsumer<DeliberyUpdate, LabeledUpdateConsumer>("DeliveryDayUpdatedMessage")
                 .AddRabbitMqConsumer<DeliberyUpdate, LabeledDesactive>("DeliveryDayDeletedMessage")
-                .AddRabbitMqConsumer<Labeled, LabeledConsumer>("RecipeCreated")
-                .AddRabbitMqConsumer<Package, PackageConsumer>("nutritionalkitchen-labeled-package");
+                .AddRabbitMqConsumer<RecipePreparation, RecipePreparationConsumer>("RecipeCreated")
+                .AddRabbitMqConsumer<PackageCreated, PackageConsumer>("nutritionalkitchen-labeled-package");
 
             return services;
         }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NutritionalKitchen.WebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+398f43ef6e677ded599a8f2b0ad1c8ac186ccf8e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d929845739d269a326fe5dbe9d446cd81eff081e")]
 [assembly: System.Reflection.AssemblyProductAttribute("NutritionalKitchen.WebApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NutritionalKitchen.WebApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -32,14 +32,15 @@ namespace NutritionalKitchen.Infrastructure
             services.AddDbContext<StoredDbContext>(context =>
                     context.UseNpgsql(connectionString));
             services.AddDbContext<DomainDbContext>(context =>
-                    context.UseNpgsql(connectionString)); 
+                    context.UseNpgsql(connectionString));
 
-            services.AddScoped<IKitchenTaskRepository, KitchenTaskRepository>()
+            services.AddScoped<IUnitOfWork, UnitOfWork>()
+                    .AddScoped<IKitchenTaskRepository, KitchenTaskRepository>()
                     .AddScoped<ILabelRepository, LabelRepository>()
                     .AddScoped<IPackageRepository, PackageRepository>()
                     .AddScoped<IPreparedFoodRepository, PreparedFoodRepository>()
                     .AddScoped<IRecipePreparationRepository, RecipePreparationRepository>()
-                    .AddScoped<IUnitOfWork, UnitOfWork>()
+                    .AddScoped<IOutboxDatabase<DomainEvent>, UnitOfWork>() 
                     .AddOutbox<DomainEvent>();
 
             services.AddAplication()

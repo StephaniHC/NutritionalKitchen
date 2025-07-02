@@ -1,6 +1,5 @@
 ﻿using Joseco.Communication.External.Contracts.Services;
-using MediatR;
-using NutritionalKitchen.Application.Label.CreateLabel;
+using MediatR; 
 using NutritionalKitchen.Application.Label.UpdateLabel;
 using NutritionalKitchen.Integration.Labeled;
 using System;

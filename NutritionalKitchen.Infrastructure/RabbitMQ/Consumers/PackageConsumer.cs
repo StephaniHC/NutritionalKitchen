@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace NutritionalKitchen.Infrastructure.RabbitMQ.Consumers
 {
-    public class PackageConsumer(IMediator mediator) : IIntegrationMessageConsumer<Package>
+    public class PackageConsumer(IMediator mediator) : IIntegrationMessageConsumer<PackageCreated>
     {
-        public async Task HandleAsync(Package message, CancellationToken cancellationToken)
+        public async Task HandleAsync(PackageCreated message, CancellationToken cancellationToken)
         {
             CreatePackageCommand command = new(
                 "Pending",

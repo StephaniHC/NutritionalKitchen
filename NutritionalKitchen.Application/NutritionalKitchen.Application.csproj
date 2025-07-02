@@ -7,11 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Joseco.Communication.External.Contracts" Version="1.0.1" />
+    <PackageReference Include="Joseco.Outbox.Contracts" Version="1.0.2" />
     <PackageReference Include="MediatR" Version="12.5.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\NutritionalKitchen.Domain\NutritionalKitchen.Domain.csproj" />
+    <ProjectReference Include="..\NutritionalKitchen.Integration\NutritionalKitchen.Integration.csproj" />
   </ItemGroup>
 
 </Project>

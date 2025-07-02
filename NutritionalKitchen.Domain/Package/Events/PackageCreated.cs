@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace NutritionalKitchen.Domain.Package.Events
 { 
-    public record PackageCreated(Guid RecipeId, string status, Guid labelId) : DomainEvent
+    public record PackageCreated(Guid packageId, string status) : DomainEvent
     {
-        public PackageCreated() : this(Guid.Empty, string.Empty, Guid.Empty)
+        public PackageCreated() : this(Guid.Empty, string.Empty)
         {
         }
     }

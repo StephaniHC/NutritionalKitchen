@@ -18,8 +18,8 @@ namespace NutritionalKitchen.Infrastructure.Extensions
 
         public static IServiceCollection AddSecrets(this IServiceCollection services, IConfiguration configuration, IHostEnvironment environment)
         {
-            bool useSecretManager = configuration.GetValue<bool>("UseSecretManager", false);
-            if (environment.IsDevelopment() && !useSecretManager)
+            bool useSecretManager = false; //configuration.GetValue<bool>("UseSecretManager", false);
+            if (!useSecretManager)
             {
                 configuration
                     .LoadAndRegister<RabbitMqSettings>(services, RabbitMqSettingsSecretName);

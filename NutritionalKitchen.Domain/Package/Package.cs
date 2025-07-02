@@ -1,9 +1,11 @@
 ﻿using NutritionalKitchen.Domain.Abstractions;
+using NutritionalKitchen.Domain.Package.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace NutritionalKitchen.Domain.Package
 {
@@ -15,6 +17,8 @@ namespace NutritionalKitchen.Domain.Package
         {
             Status = status; 
             LabelId = labelId;
+
+            AddDomainEvent(new PackageCreated(LabelId, Status));
         }
          
     }

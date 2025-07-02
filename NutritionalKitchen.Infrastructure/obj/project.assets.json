@@ -1686,8 +1686,11 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "Joseco.Communication.External.Contracts": "1.0.1",
+          "Joseco.Outbox.Contracts": "1.0.2",
           "MediatR": "12.5.0",
-          "NutritionalKitchen.Domain": "1.0.0"
+          "NutritionalKitchen.Domain": "1.0.0",
+          "NutritionalKitchen.Integration": "1.0.0"
         },
         "compile": {
           "bin/placeholder/NutritionalKitchen.Application.dll": {}

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NutritionalKitchen.Infrastructure.RabbitMQ.Consumers
+namespace NutritionalKitchen.Infrastructure.Repositories
 {
-    public class RecipeConsumer
+    public interface IDatabase : IDisposable
     {
+        void Migrate();
     }
 }
