@@ -33,10 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Integration\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="ExecCodeCoverage.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

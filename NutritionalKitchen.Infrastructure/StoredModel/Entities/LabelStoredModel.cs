@@ -46,8 +46,7 @@ namespace NutritionalKitchen.Infrastructure.StoredModel.Entities
         [Required]
         public Guid DeliberyId { get; set; }
 
-        [Column("Status")]
-        [StringLength(256)]
+        [Column("Status")] 
         [Required]
         public bool Status { get; set; }
 

@@ -23,7 +23,9 @@ namespace NutritionalKitchen.Test.Infraestructure.StoredModel
                 Detail = "Detalle válido",
                 Address = "Avenida",
                 ContractId = Guid.NewGuid(),
-                PatientId = Guid.NewGuid()
+                PatientId = Guid.NewGuid(),
+                DeliberyId = Guid.NewGuid(),
+                Status = true
             };
 
             // Act
@@ -50,7 +52,9 @@ namespace NutritionalKitchen.Test.Infraestructure.StoredModel
                 Detail = new string('X', 501),
                 Address = "Calle 1",
                 ContractId = Guid.NewGuid(),
-                PatientId = Guid.NewGuid()
+                PatientId = Guid.NewGuid(),
+                DeliberyId = Guid.NewGuid(),
+                Status = true
             };
 
             var results = new List<ValidationResult>();
@@ -73,7 +77,9 @@ namespace NutritionalKitchen.Test.Infraestructure.StoredModel
                 Detail = "Descripción",
                 Address = new string('A', 257),
                 ContractId = Guid.NewGuid(),
-                PatientId = Guid.NewGuid()
+                PatientId = Guid.NewGuid(),
+                DeliberyId = Guid.NewGuid(),
+                Status = true
             };
 
             var results = new List<ValidationResult>();
@@ -96,7 +102,9 @@ namespace NutritionalKitchen.Test.Infraestructure.StoredModel
                 Detail = "Etiqueta válida",
                 Address = "Calle Falsa 123",
                 ContractId = Guid.NewGuid(),
-                PatientId = Guid.NewGuid()
+                PatientId = Guid.NewGuid(),
+                DeliberyId = Guid.NewGuid(),
+                Status = true
             };
 
             var results = new List<ValidationResult>();
