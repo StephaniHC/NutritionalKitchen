@@ -23,6 +23,7 @@ namespace NutritionalKitchen.Infrastructure.DomainModel
         public virtual DbSet<Package> Package { get; set; }
         public virtual DbSet<PreparedFood> PreparedFood { get; set; }
         public virtual DbSet<RecipePreparation> RecipePreparation { get; set; }
+        public virtual DbSet<Recipe> Recipe { get; set; }
         public DbSet<OutboxMessage<DomainEvent>> OutboxMessages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

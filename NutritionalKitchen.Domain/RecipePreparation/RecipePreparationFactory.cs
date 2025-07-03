@@ -9,10 +9,10 @@ namespace NutritionalKitchen.Domain.RecipePreparation
 {
     public class RecipePreparationFactory : IRecipePreparationFactory
     {
-        public RecipePreparation Create(string recipeName, string detail, DateTime preparationDate, Guid patientId)
+        public RecipePreparation Create(Guid recipeId, string detail, string mealTime, DateTime preparationDate, Guid patientId)
         { 
-            RecipePreparation recipePreparation = new RecipePreparation(recipeName, detail, preparationDate, patientId);
+            RecipePreparation recipePreparation = new RecipePreparation(recipeId, detail, mealTime, preparationDate, patientId);
             return recipePreparation;
         }
     }
-}
+} 

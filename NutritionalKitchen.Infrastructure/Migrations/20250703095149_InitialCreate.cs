@@ -95,12 +95,26 @@ namespace NutritionalKitchen.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Recipe",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    Description = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Recipe", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "RecipePreparation",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    RecipeName = table.Column<string>(type: "text", nullable: false),
+                    RecipeId = table.Column<Guid>(type: "uuid", nullable: false),
                     Detail = table.Column<string>(type: "text", nullable: false),
+                    MealTime = table.Column<string>(type: "text", nullable: false),
                     PreparationDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     PatientId = table.Column<Guid>(type: "uuid", nullable: false)
                 },
@@ -128,6 +142,9 @@ namespace NutritionalKitchen.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "PreparedFood");
+
+            migrationBuilder.DropTable(
+                name: "Recipe");
 
             migrationBuilder.DropTable(
                 name: "RecipePreparation");

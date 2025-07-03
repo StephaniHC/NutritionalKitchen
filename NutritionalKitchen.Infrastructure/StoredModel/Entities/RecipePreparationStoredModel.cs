@@ -15,13 +15,17 @@ namespace NutritionalKitchen.Infrastructure.StoredModel.Entities
         [Column("Id")]
         public Guid Id { get; set; }
 
-        [Column("RecipeName")]
-        [StringLength(100)]
-        public string RecipeName { get; set; }
+        [Column("RecipeId")]
+        [Required]
+        public Guid RecipeId { get; set; }
 
         [Column("Detail")]
         [StringLength(500)]
         public string Detail { get; set; }
+
+        [Column("MealTime")]
+        [StringLength(500)]
+        public string MealTime { get; set; }
 
         [Column("PreparationDate")]
         [Required]
@@ -30,5 +34,6 @@ namespace NutritionalKitchen.Infrastructure.StoredModel.Entities
         [Column("PatientId")]
         [Required]
         public Guid PatientId { get; set; }
+
     }
 }

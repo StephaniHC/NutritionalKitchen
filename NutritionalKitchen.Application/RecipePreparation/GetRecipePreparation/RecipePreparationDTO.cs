@@ -11,8 +11,9 @@ namespace NutritionalKitchen.Application.RecipePreparation.GetRecipePreparation
     public class RecipePreparationDTO
     { 
         public Guid Id { get; set; } 
-        public string RecipeName { get; set; } 
+        public Guid RecipeId { get; set; } 
         public string Detail { get; set; } 
+        public string MealTime { get; set; } 
         public DateTime PreparationDate { get; set; } 
         public Guid PatientId { get; set; }
     }

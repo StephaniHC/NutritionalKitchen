@@ -26,7 +26,7 @@ namespace NutritionalKitchen.Infrastructure.Extensions
                 .AddRabbitMqConsumer<Labeled, LabeledConsumer>("CalendarCreatedMessage")
                 .AddRabbitMqConsumer<DeliberyUpdate, LabeledUpdateConsumer>("DeliveryDayUpdatedMessage")
                 .AddRabbitMqConsumer<DeliberyUpdate, LabeledDesactive>("DeliveryDayDeletedMessage")
-                .AddRabbitMqConsumer<RecipePreparation, RecipePreparationConsumer>("RecipeCreated")
+                .AddRabbitMqConsumer<RecipePreparation, RecipeConsumer>("RecipeCreated")
                 .AddRabbitMqConsumer<PackageCreated, PackageConsumer>("nutritionalkitchen-labeled-package");
 
             return services;

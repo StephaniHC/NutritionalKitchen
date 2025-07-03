@@ -13,31 +13,42 @@ namespace NutritionalKitchen.Infrastructure.RabbitMQ.Consumers
     public class LabeledConsumer(IMediator mediator) : IIntegrationMessageConsumer<Labeled>
     {
         public async Task HandleAsync(Labeled message, CancellationToken cancellationToken)
+
         {
             foreach (var deliveryDay in message.DeliveryDays)
             {
-                var productionDate = deliveryDay.Date;
-                var expirationDate = productionDate.AddDays(1); 
-                var delivery = productionDate;
-                var address = $"{deliveryDay.Street} {deliveryDay.Number}";
-                var contractId = message.ContractId;
-                var patientId = message.PatientId;
-                var deliberyId = deliveryDay.Id;
+                try
+                {
 
-                var command = new CreateLabelCommand(
-                    productionDate,
-                    expirationDate,
-                    delivery,
-                    "",
-                    address,
-                    contractId,
-                    patientId,
-                    deliberyId,
-                    true
-                );
+                    var productionDate = deliveryDay.Date;
+                    var expirationDate = productionDate.AddDays(1);
+                    var delivery = productionDate;
+                    var address = $"{deliveryDay.Street} {deliveryDay.Number}";
+                    var contractId = message.ContractId;
+                    var patientId = message.PatientId;
+                    var deliberyId = deliveryDay.Id;
+                    var labelId = Guid.NewGuid();
 
-                await mediator.Send(command, cancellationToken);
-            } 
+                    var command = new CreateLabelCommand(
+                        labelId,
+                        productionDate,
+                        expirationDate,
+                        delivery,
+                        "",
+                        address,
+                        contractId,
+                        patientId,
+                        deliberyId,
+                        true
+                    );
+
+                    await mediator.Send(command, cancellationToken);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"❌ Error al registrar label para {deliveryDay.Date}: {ex.Message}");
+                }
+            }
         }
     }
 }

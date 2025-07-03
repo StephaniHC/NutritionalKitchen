@@ -24,8 +24,9 @@ namespace NutritionalKitchen.Infrastructure.Handlers
             Select(r => new RecipePreparationDTO()
             {
                 Id = r.Id,
-                RecipeName = r.RecipeName,
+                RecipeId = r.RecipeId,
                 Detail = r.Detail,
+                MealTime = r.MealTime,
                 PreparationDate = r.PreparationDate,
                 PatientId = r.PatientId
             }).

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace NutritionalKitchen.Domain.RecipePreparation
 {
-    public interface IRecipePreparationFactory
+    public interface IRecipeFactory
     {
-        RecipePreparation Create(Guid recipeId, string detail, string mealTime, DateTime preparationDate, Guid patientId);
+        Recipe Create(Guid id, string name, string description);
     }
 }

@@ -9,5 +9,6 @@ namespace NutritionalKitchen.Domain.Abstractions
     public interface IUnitOfWork
     {
         Task CommitAsync(CancellationToken cancellationToken = default);
+        Task CommitBulkAsync(CancellationToken cancellationToken = default);
     }
 }

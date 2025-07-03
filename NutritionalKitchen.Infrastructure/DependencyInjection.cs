@@ -1,8 +1,6 @@
-﻿using Joseco.Outbox.EFCore;
-using Joseco.Outbox.EFCore.Persistence;
-using Microsoft.EntityFrameworkCore;
+﻿using Joseco.Outbox.EFCore.Persistence;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection; 
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NutritionalKitchen.Domain.Abstractions;
 using NutritionalKitchen.Domain.KitchenTask;
@@ -12,6 +10,8 @@ using NutritionalKitchen.Domain.PreparedFood;
 using NutritionalKitchen.Domain.RecipePreparation;
 using NutritionalKitchen.Infrastructure.DomainModel;
 using NutritionalKitchen.Infrastructure.Repositories;
+using Joseco.Outbox.EFCore;
+using Microsoft.EntityFrameworkCore;
 using NutritionalKitchen.Infrastructure.StoredModel;
 using NutritionalKitchen.Infrastructure.Extensions;
 using System.Reflection;
@@ -40,7 +40,8 @@ namespace NutritionalKitchen.Infrastructure
                     .AddScoped<IPackageRepository, PackageRepository>()
                     .AddScoped<IPreparedFoodRepository, PreparedFoodRepository>()
                     .AddScoped<IRecipePreparationRepository, RecipePreparationRepository>()
-                    .AddScoped<IOutboxDatabase<DomainEvent>, UnitOfWork>() 
+                    .AddScoped<IRecipeRepository, RecipeRepository>()
+                    .AddScoped<IOutboxDatabase<DomainEvent>, UnitOfWork>()
                     .AddOutbox<DomainEvent>();
 
             services.AddAplication()

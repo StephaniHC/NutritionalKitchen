@@ -9,6 +9,7 @@ namespace NutritionalKitchen.Domain.Label
 {
     public class Label : AggregateRoot
     {
+        public Guid Id { get; private set; }
         public DateTime ProductionDate { get; private set; }
         public DateTime ExpirationDate { get; private set; }
         public DateTime DeliberyDate { get; private set; }
@@ -18,8 +19,9 @@ namespace NutritionalKitchen.Domain.Label
         public Guid PatientId { get; private set; }
         public Guid DeliberyId { get; private set; }
         public bool Status { get; private set; }
-        public Label(DateTime productionDate, DateTime expirationDate, DateTime deliberyDate, string detail, string address, Guid contractId, Guid patientId, Guid deliberyId, bool status) : base(Guid.NewGuid())
+        public Label(Guid id, DateTime productionDate, DateTime expirationDate, DateTime deliberyDate, string detail, string address, Guid contractId, Guid patientId, Guid deliberyId, bool status) : base(Guid.NewGuid())
         {
+            Id = id;
             ProductionDate = productionDate;
             ExpirationDate = expirationDate;
             DeliberyDate = deliberyDate;

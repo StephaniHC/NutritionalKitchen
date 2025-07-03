@@ -1,9 +1,7 @@
 ﻿using Joseco.Outbox.EFCore.Persistence;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage;
 using NutritionalKitchen.Domain.Abstractions;
 using NutritionalKitchen.Infrastructure.StoredModel.Entities;
-using NutritionalKitchen.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +18,7 @@ namespace NutritionalKitchen.Infrastructure.StoredModel
         public virtual DbSet<PackageStoredModel> Package { get; set; }
         public virtual DbSet<PreparedFoodStoredModel> PreparedFood { get; set; }
         public virtual DbSet<RecipePreparationStoredModel> RecipePreparation { get; set; }
+        public virtual DbSet<RecipeStoredModel> Recipe { get; set; }
 
         public StoredDbContext(DbContextOptions<StoredDbContext> options) : base(options)
         {

@@ -65,5 +65,27 @@ namespace NutritionalKitchen.Infrastructure.Repositories
         {
             return _dbContext.OutboxMessages;
         }
+        public async Task CommitBulkAsync(CancellationToken cancellationToken = default)
+        {
+            Console.WriteLine("CommitBulk DB Context Id: " + _dbContext.ContextId);
+
+            var domainEvents = _dbContext.ChangeTracker
+                .Entries<Entity>()
+                .Where(x => x.Entity.DomainEvents.Any())
+                .SelectMany(x =>
+                {
+                    var events = x.Entity.DomainEvents.ToImmutableArray();
+                    x.Entity.ClearDomainEvents();
+                    return events;
+                })
+                .ToList();
+             
+            await _dbContext.SaveChangesAsync(cancellationToken);
+
+            foreach (var e in domainEvents)
+            {
+                await _publisher.Publish(e, cancellationToken);
+            }
+        }
     }
 }
