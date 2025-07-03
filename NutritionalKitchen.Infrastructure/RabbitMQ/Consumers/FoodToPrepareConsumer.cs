@@ -1,9 +1,6 @@
 ﻿using Joseco.Communication.External.Contracts.Services;
-using MediatR;
-using NutritionalKitchen.Application.Label.CreateLabel;
-using NutritionalKitchen.Application.PreparedFood.CreatePreparedFood;
-using NutritionalKitchen.Application.RecipePreparation.CreateRecipePreparation;
-using NutritionalKitchen.Integration.Labeled;
+using MediatR; 
+using NutritionalKitchen.Application.RecipePreparation.CreateRecipePreparation; 
 using NutritionalKitchen.Integration.PreparedFood;
 using System;
 using System.Collections.Generic;
