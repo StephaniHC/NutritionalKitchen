@@ -31,7 +31,7 @@ namespace NutritionalKitchen.Application.RecipePreparation.CreateRecipePreparati
 
             await _recipePreparationRepository.AddAsync(preparedFood);
 
-            await _unitOfWork.CommitAsync(cancellationToken);
+            await _unitOfWork.CommitBulkAsync(cancellationToken);
 
             return preparedFood.Id;
         }

@@ -16,38 +16,29 @@ namespace NutritionalKitchen.Infrastructure.RabbitMQ.Consumers
 
         {
             foreach (var deliveryDay in message.DeliveryDays)
-            {
-                try
-                {
+            { 
+                var productionDate = deliveryDay.Date;
+                var expirationDate = productionDate.AddDays(1);
+                var delivery = productionDate;
+                var address = $"{deliveryDay.Street} {deliveryDay.Number}";
+                var contractId = message.ContractId;
+                var patientId = message.PatientId;
+                var deliberyId = deliveryDay.Id;
+                var labelId = Guid.NewGuid();
 
-                    var productionDate = deliveryDay.Date;
-                    var expirationDate = productionDate.AddDays(1);
-                    var delivery = productionDate;
-                    var address = $"{deliveryDay.Street} {deliveryDay.Number}";
-                    var contractId = message.ContractId;
-                    var patientId = message.PatientId;
-                    var deliberyId = deliveryDay.Id;
-                    var labelId = Guid.NewGuid();
-
-                    var command = new CreateLabelCommand(
-                        labelId,
-                        productionDate,
-                        expirationDate,
-                        delivery,
-                        "",
-                        address,
-                        contractId,
-                        patientId,
-                        deliberyId,
-                        true
-                    );
-
-                    await mediator.Send(command, cancellationToken);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"❌ Error al registrar label para {deliveryDay.Date}: {ex.Message}");
-                }
+                var command = new CreateLabelCommand(
+                    labelId,
+                    productionDate,
+                    expirationDate,
+                    delivery,
+                    "",
+                    address,
+                    contractId,
+                    patientId,
+                    deliberyId,
+                    true
+                ); 
+                await mediator.Send(command, cancellationToken); 
             }
         }
     }

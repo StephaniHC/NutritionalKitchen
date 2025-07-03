@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using NutritionalKitchen.Integration.Package;
 using NutritionalKitchen.Integration.Labeled;
 using NutritionalKitchen.Integration.RecipePreparation;
+using NutritionalKitchen.Integration.PreparedFood;
 
 namespace NutritionalKitchen.Infrastructure.Extensions
 {
@@ -27,6 +28,7 @@ namespace NutritionalKitchen.Infrastructure.Extensions
                 .AddRabbitMqConsumer<DeliberyUpdate, LabeledUpdateConsumer>("DeliveryDayUpdatedMessage")
                 .AddRabbitMqConsumer<DeliberyUpdate, LabeledDesactive>("DeliveryDayDeletedMessage")
                 .AddRabbitMqConsumer<RecipePreparation, RecipeConsumer>("RecipeCreated")
+                .AddRabbitMqConsumer<PreparedFood, FoodToPrepareConsumer>("MealPlanCreated")
                 .AddRabbitMqConsumer<PackageCreated, PackageConsumer>("nutritionalkitchen-labeled-package");
 
             return services;
