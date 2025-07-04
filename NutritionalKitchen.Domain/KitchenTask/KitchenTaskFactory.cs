@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace NutritionalKitchen.Domain.KitchenTask
 {
     public class KitchenTaskFactory : IKitchenTaskFactory
-    { 
-        public KitchenTask Create(string description, string status, string kitchener, DateTime preparationDate)
+    {
+        public KitchenTask Create(string kitchener, DateTime preparationDate)
         {
-            KitchenTask kitchenTask = new KitchenTask(description, status, kitchener, preparationDate);
+            KitchenTask kitchenTask = new KitchenTask(kitchener, preparationDate);
             return kitchenTask;
         }
     }

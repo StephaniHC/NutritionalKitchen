@@ -19,18 +19,12 @@ namespace NutritionalKitchen.Infrastructure.DomainModel.config
             builder.Property(x => x.Id)
                 .HasColumnName("Id");
 
-            builder.Property(x => x.Description)
-                .HasColumnName("Description");
-
-            builder.Property(x => x.Status)
-                .HasColumnName("Status");
-
             builder.Property(x => x.Kitchener)
                 .HasColumnName("Kitchener");
 
             builder.Property(x => x.PreparationDate)
                 .HasColumnName("PreparationDate");
 
-        } 
+        }
     }
 }

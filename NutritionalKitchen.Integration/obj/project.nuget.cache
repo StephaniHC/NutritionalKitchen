@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "3utn9rCdMVc=",
+  "dgSpecHash": "n9q2mdi8BykJi8eFzHFIJy8Dm+o6poq1+kBgQQpBFiut/qwoUZKB2w1dWpLoWdRw7hysDuQ23Nikhj76aOw6Fg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\steph\\Documents\\DiploNur\\PresentacionFinal\\git\\NutritionalKitchen\\NutritionalKitchen.Integration\\NutritionalKitchen.Integration.csproj",
+  "projectFilePath": "C:\\Users\\stephani.heredia\\Downloads\\docs\\fix\\NutritionalKitchen\\NutritionalKitchen.Integration\\NutritionalKitchen.Integration.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\steph\\.nuget\\packages\\joseco.communication.external.contracts\\1.0.1\\joseco.communication.external.contracts.1.0.1.nupkg.sha512"
+    "C:\\Users\\stephani.heredia\\.nuget\\packages\\joseco.communication.external.contracts\\1.0.1\\joseco.communication.external.contracts.1.0.1.nupkg.sha512"
   ],
   "logs": []
 }

@@ -9,8 +9,15 @@ using System.Threading.Tasks;
 namespace NutritionalKitchen.Application.PreparedFood.GetPreparedFood
 {
     public class PreparedFoodDTO
-    { 
-        public Guid Id { get; set; } 
+    {
+        public Guid Id { get; set; }
         public Guid IdKitchenTask { get; set; }
+        public Guid IdRecipePreparation { get; set; }
+        public DateTime RecipePreparationDate { get; set; }
+        public DateTime Status { get; set; }
+        public DateTime Recipe { get; set; }
+        public DateTime Detail { get; set; }
+        public Guid PatientId { get; set; }
+        public Guid LabelId { get; set; }
     }
 }
