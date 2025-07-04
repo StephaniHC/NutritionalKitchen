@@ -275,6 +275,9 @@ __pycache__/
 # .NET Core build folders
 bin/
 obj/
+[Bb]in/
+[Oo]bj/
+
 
 # Common node modules locations
 /node_modules
