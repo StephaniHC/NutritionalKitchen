@@ -27,7 +27,7 @@ namespace NutritionalKitchen.Application.RecipePreparation.CreateRecipePreparati
 
         public async Task<Guid> Handle(CreateRecipePreparationCommand request, CancellationToken cancellationToken)
         {
-            var preparedFood = _recipePreparationFactory.Create(request.recipeId, request.detail, request.mealTime, request.preparationDate, request.patientId);
+            var preparedFood = _recipePreparationFactory.Create(request.id, request.recipeId, request.detail, request.mealTime, request.preparationDate, request.patientId);
 
             await _recipePreparationRepository.AddAsync(preparedFood);
 

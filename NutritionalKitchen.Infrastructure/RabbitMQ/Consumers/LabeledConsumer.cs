@@ -20,7 +20,7 @@ namespace NutritionalKitchen.Infrastructure.RabbitMQ.Consumers
                 var productionDate = deliveryDay.Date;
                 var expirationDate = productionDate.AddDays(1);
                 var delivery = productionDate;
-                var address = $"{deliveryDay.Street} {deliveryDay.Number}";
+                var address = $"{deliveryDay.Street}, Nro: {deliveryDay.Number}";
                 var contractId = message.ContractId;
                 var patientId = message.PatientId;
                 var deliberyId = deliveryDay.Id;

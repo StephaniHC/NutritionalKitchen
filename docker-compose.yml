@@ -10,7 +10,7 @@ services:
       - ConnectionStrings__DefaultConnection=Host=postgres-db;Database=nutritionalKitchen;Username=postgres;Password=password
       - RabbitMqSettings__Host=host.docker.internal
       - RabbitMqSettings__UserName=storeUser
-      - RabbitMqSettings__Passwordt=storeUserPassword
+      - RabbitMqSettings__Password=storeUserPassword
       - RabbitMqSettings__VirtualHost=/
     ports:
       - 5075:5075  

@@ -19,11 +19,13 @@ namespace NutritionalKitchen.Infrastructure.RabbitMQ.Consumers
             {
                 var recipeId = mealTimes.RecipeId;
                 var detail = $"{message.Name}, {message.Description}. Meta: {message.Goal}";
-                var mealTime = mealTimes.Type;
-                var preparationDate = mealTimes.Date;
+                var mealTime = mealTimes.Type; 
+                var preparationDate = mealTimes.Date.ToUniversalTime(); 
                 var patientId = message.PatientId;
+                var recipePreparationId = Guid.NewGuid();
 
                 var command = new CreateRecipePreparationCommand(
+                    recipePreparationId,
                     recipeId,
                     detail,
                     mealTime,
