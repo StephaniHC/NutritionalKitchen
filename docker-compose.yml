@@ -17,7 +17,8 @@ services:
     depends_on:
       - postgres-db
     networks:
-      - nutritional-network 
+      - nutritional-network
+      - kong-net
   # Servicio de la base de datos postgresql
   postgres-db: 
     image: stephaniheredia/nutritionalkitchendb:latest
@@ -41,6 +42,8 @@ services:
 networks:
   nutritional-network:
     driver: bridge
+  kong-net:
+    external: true  
 
 volumes:
-  postgres_data:
+  postgres_data: 
