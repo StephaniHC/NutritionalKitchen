@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # Servicio de tu aplicación .NET
   nutritional-kitchen: 
@@ -8,10 +6,18 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Host=postgres-db;Database=nutritionalKitchen;Username=postgres;Password=password
-      - RabbitMqSettings__Host=host.docker.internal
+      - RabbitMqSettings__Host=rabbitmq
       - RabbitMqSettings__UserName=storeUser
       - RabbitMqSettings__Password=storeUserPassword
       - RabbitMqSettings__VirtualHost=/
+      - Sentry__Dsn=https://24140945404144a56e3a71912109a2b5@o4509306989248512.ingest.us.sentry.io/4509306991542272
+      - Sentry__SendDefaultPii=true
+      - Sentry__MaxRequestBodySize=Always
+      - Sentry__MinimumBreadcrumbLevel=Debug
+      - Sentry__MinimumEventLevel=Warning
+      - Sentry__AttachStackTrace=true
+      - Sentry__Debug=true
+      - Sentry__DiagnosticLevel=Error
     ports:
       - 5075:5075  
     depends_on:
@@ -41,7 +47,7 @@ services:
 
 networks:
   nur-network:
-    driver: bridge
+    external: true  
   kong-net:
     external: true  
 
