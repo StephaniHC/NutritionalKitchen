@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # Servicio de tu aplicación .NET
   nutritional-kitchen: 
