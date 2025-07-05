@@ -13,27 +13,37 @@ namespace NutritionalKitchen.Infrastructure.RabbitMQ.Consumers
     public class FoodToPrepareConsumer(IMediator mediator) : IIntegrationMessageConsumer<PreparedFood>
     {
         public async Task HandleAsync(PreparedFood message, CancellationToken cancellationToken)
-
         {
-            foreach (var mealTimes in message.MealTimes)
+            try
             {
-                var recipeId = mealTimes.RecipeId;
-                var detail = $"{message.Name}, {message.Description}. Meta: {message.Goal}";
-                var mealTime = mealTimes.Type; 
-                var preparationDate = mealTimes.Date.ToUniversalTime(); 
-                var patientId = message.PatientId;
-                var recipePreparationId = Guid.NewGuid();
+                foreach (var mealTimes in message.MealTimes)
+                {
+                    var recipeId = mealTimes.RecipeId;
+                    var detail = $"{message.Name}, {message.Description}. Meta: {message.Goal}";
+                    var mealTime = mealTimes.Type;
+                    var preparationDate = mealTimes.Date.ToUniversalTime(); 
+                    var patientId = message.PatientId;
+                    var recipePreparationId = Guid.NewGuid();
 
-                var command = new CreateRecipePreparationCommand(
-                    recipePreparationId,
-                    recipeId,
-                    detail,
-                    mealTime,
-                    preparationDate,
-                    patientId
-                );
-                await mediator.Send(command, cancellationToken);
+                    var command = new CreateRecipePreparationCommand(
+                        recipePreparationId,
+                        recipeId,
+                        detail,
+                        mealTime,
+                        preparationDate,
+                        patientId
+                    );
+
+                    await mediator.Send(command, cancellationToken);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[RabbitMQ][MealPlanCreated] Error: {ex.Message}"); 
+                SentrySdk.CaptureException(ex);
+                throw; 
             }
         }
     }
+
 }

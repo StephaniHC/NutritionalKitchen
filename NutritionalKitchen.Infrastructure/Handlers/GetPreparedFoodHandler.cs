@@ -25,10 +25,13 @@ namespace NutritionalKitchen.Infrastructure.Handlers
             Select(p => new PreparedFoodDTO()
             {
                 Id = p.Id,
-                IdKitchenTask = p.IdKitchenTask,
-                IdRecipePreparation = p.IdRecipePreparation,
+                IdKitchenTask = p.IdKitchenTask, 
                 RecipePreparationDate = p.RecipePreparationDate,
-                PatientId = p.PatientId
+                Status = p.Status,
+                Recipe = p.Recipe,
+                Detail = p.Detail,
+                PatientId = p.PatientId,
+                LabelId = p.LabelId
             }).
             ToListAsync(cancellationToken);
         }

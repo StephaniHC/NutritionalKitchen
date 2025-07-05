@@ -21,11 +21,12 @@ namespace NutritionalKitchen.Infrastructure.Handlers
 
         public async Task<IEnumerable<RecipePreparationDTO>> Handle(GetRecipePreparationByTodayQuery request, CancellationToken cancellationToken)
         {
-            var today = DateTime.Today;
+            var today = DateTime.UtcNow.Date;  
+            var tomorrow = today.AddDays(1);
 
             return await _dbContext.RecipePreparation
                 .AsNoTracking()
-                .Where(r => r.PreparationDate.Date == today)
+                .Where(r => r.PreparationDate >= today && r.PreparationDate < tomorrow)
                 .Select(r => new RecipePreparationDTO
                 {
                     Id = r.Id,

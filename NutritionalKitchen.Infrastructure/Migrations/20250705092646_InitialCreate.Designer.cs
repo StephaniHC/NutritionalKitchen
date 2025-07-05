@@ -12,7 +12,7 @@ using NutritionalKitchen.Infrastructure.DomainModel;
 namespace NutritionalKitchen.Infrastructure.Migrations
 {
     [DbContext(typeof(DomainDbContext))]
-    [Migration("20250703095149_InitialCreate")]
+    [Migration("20250705092646_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -77,11 +77,6 @@ namespace NutritionalKitchen.Infrastructure.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("Id");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("Description");
-
                     b.Property<string>("Kitchener")
                         .IsRequired()
                         .HasColumnType("text")
@@ -90,11 +85,6 @@ namespace NutritionalKitchen.Infrastructure.Migrations
                     b.Property<DateTime>("PreparationDate")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("PreparationDate");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("Status");
 
                     b.HasKey("Id");
 
@@ -179,9 +169,40 @@ namespace NutritionalKitchen.Infrastructure.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("Id");
 
+                    b.Property<string>("Detail")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("Detail");
+
                     b.Property<Guid>("IdKitchenTask")
                         .HasColumnType("uuid")
                         .HasColumnName("IdKitchenTask");
+
+                    b.Property<Guid>("IdRecipePreparation")
+                        .HasColumnType("uuid")
+                        .HasColumnName("IdRecipePreparation");
+
+                    b.Property<Guid?>("LabelId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("LabelId");
+
+                    b.Property<Guid>("PatientId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("PatientId");
+
+                    b.Property<string>("Recipe")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("Recipe");
+
+                    b.Property<DateTime>("RecipePreparationDate")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("RecipePreparationDate");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("Status");
 
                     b.HasKey("Id");
 

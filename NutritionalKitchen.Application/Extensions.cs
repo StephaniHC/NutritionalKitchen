@@ -4,10 +4,12 @@ using NutritionalKitchen.Domain.Label;
 using NutritionalKitchen.Domain.Package;
 using NutritionalKitchen.Domain.PreparedFood;
 using NutritionalKitchen.Domain.RecipePreparation;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
 namespace NutritionalKitchen.Application
 {
+    [ExcludeFromCodeCoverage]
     public static class Extensions
     { 
         public static IServiceCollection AddAplication(this IServiceCollection services)

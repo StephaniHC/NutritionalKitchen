@@ -61,7 +61,7 @@ namespace NutritionalKitchen.WebApi.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpGet("recipe")]
         public async Task<ActionResult> GetRecipe()
         {
             try
