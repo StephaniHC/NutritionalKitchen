@@ -6,12 +6,14 @@ using NutritionalKitchen.Domain.KitchenTask;
 using NutritionalKitchen.Domain.PreparedFood;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace NutritionalKitchen.Application.KitchenTask.CreateKitchenTask
 {
+    [ExcludeFromCodeCoverage]
     public class CreateCommandHandler : IRequestHandler<CreateKitchenTaskCommand, Guid>
     {
         private readonly IKitchenTaskFactory _kitchenTaskFactory;

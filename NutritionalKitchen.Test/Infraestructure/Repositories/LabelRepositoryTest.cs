@@ -5,9 +5,8 @@ using NutritionalKitchen.Infrastructure.DomainModel;
 using NutritionalKitchen.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using Xunit;
 
 namespace NutritionalKitchen.Test.Infraestructure.Repositories
 {
@@ -31,6 +30,7 @@ namespace NutritionalKitchen.Test.Infraestructure.Repositories
             _mockDbContext.Setup(x => x.Label).ReturnsDbSet(labels);
 
             var label = new Label(
+                id: Guid.NewGuid(),
                 productionDate: DateTime.Today,
                 expirationDate: DateTime.Today.AddDays(10),
                 deliberyDate: DateTime.Today.AddDays(1),
@@ -39,7 +39,8 @@ namespace NutritionalKitchen.Test.Infraestructure.Repositories
                 contractId: Guid.NewGuid(),
                 patientId: Guid.NewGuid(),
                 deliberyId: Guid.NewGuid(),
-                status: true);
+                status: true
+            );
 
             // Act
             await _repository.AddAsync(label);
@@ -53,6 +54,7 @@ namespace NutritionalKitchen.Test.Infraestructure.Repositories
         {
             // Arrange
             var label = new Label(
+                id: Guid.NewGuid(),
                 productionDate: DateTime.Today,
                 expirationDate: DateTime.Today.AddDays(10),
                 deliberyDate: DateTime.Today.AddDays(1),
@@ -61,7 +63,8 @@ namespace NutritionalKitchen.Test.Infraestructure.Repositories
                 contractId: Guid.NewGuid(),
                 patientId: Guid.NewGuid(),
                 deliberyId: Guid.NewGuid(),
-                status: true);
+                status: true
+            );
 
             var labels = new List<Label> { label };
             _mockDbContext.Setup(db => db.Label).ReturnsDbSet(labels);
@@ -78,6 +81,7 @@ namespace NutritionalKitchen.Test.Infraestructure.Repositories
         {
             // Arrange
             var label = new Label(
+                id: Guid.NewGuid(),
                 productionDate: DateTime.Today,
                 expirationDate: DateTime.Today.AddDays(10),
                 deliberyDate: DateTime.Today.AddDays(1),
@@ -86,7 +90,8 @@ namespace NutritionalKitchen.Test.Infraestructure.Repositories
                 contractId: Guid.NewGuid(),
                 patientId: Guid.NewGuid(),
                 deliberyId: Guid.NewGuid(),
-                status: true);
+                status: true
+            );
 
             var labels = new List<Label> { label };
             _mockDbContext.Setup(db => db.Label).ReturnsDbSet(labels);
@@ -117,10 +122,8 @@ namespace NutritionalKitchen.Test.Infraestructure.Repositories
         public async Task UpdateAsync_ShouldUpdateLabel()
         {
             // Arrange
-            var labels = new List<Label>();
-            _mockDbContext.Setup(x => x.Label).ReturnsDbSet(labels);
-
             var label = new Label(
+                id: Guid.NewGuid(),
                 productionDate: DateTime.Today,
                 expirationDate: DateTime.Today.AddDays(10),
                 deliberyDate: DateTime.Today.AddDays(1),
@@ -129,7 +132,11 @@ namespace NutritionalKitchen.Test.Infraestructure.Repositories
                 contractId: Guid.NewGuid(),
                 patientId: Guid.NewGuid(),
                 deliberyId: Guid.NewGuid(),
-                status: true);
+                status: true
+            );
+
+            var labels = new List<Label> { label };
+            _mockDbContext.Setup(x => x.Label).ReturnsDbSet(labels);
 
             // Act
             await _repository.UpdateAsync(label);

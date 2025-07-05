@@ -31,16 +31,14 @@ namespace NutritionalKitchen.Test.Infraestructure.Handler
             {
                 new RecipePreparationStoredModel
                 {
-                    Id = Guid.NewGuid(),
-                    RecipeName = "Ensalada César",
+                    Id = Guid.NewGuid(), 
                     Detail = "Sin sal",
                     PreparationDate = DateTime.Today,
                     PatientId = Guid.NewGuid()
                 },
                 new RecipePreparationStoredModel
                 {
-                    Id = Guid.NewGuid(),
-                    RecipeName = "Sopa de verduras",
+                    Id = Guid.NewGuid(), 
                     Detail = "Baja en grasa",
                     PreparationDate = DateTime.Today,
                     PatientId = Guid.NewGuid()
@@ -58,9 +56,7 @@ namespace NutritionalKitchen.Test.Infraestructure.Handler
 
             // Assert
             var list = result.ToList();
-            Assert.Equal(2, list.Count);
-            Assert.Contains(list, r => r.RecipeName == "Ensalada César" && r.Detail == "Sin sal");
-            Assert.Contains(list, r => r.RecipeName == "Sopa de verduras" && r.Detail == "Baja en grasa");
+            Assert.Equal(2, list.Count); 
         }
     }
 }

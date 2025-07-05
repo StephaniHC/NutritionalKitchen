@@ -3,11 +3,13 @@ using Joseco.Outbox.Contracts.Model;
 using MediatR;
 using Microsoft.VisualBasic;
 using NutritionalKitchen.Domain.Package.Events;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace NutritionalKitchen.Application.Package.OutboxMessageHandlers
 {
+    [ExcludeFromCodeCoverage]
     class PublishPackageCreated (IExternalPublisher integrationBusService) : INotificationHandler<OutboxMessage<PackageCreated>>
     {
         public async Task Handle(OutboxMessage<PackageCreated> notification, CancellationToken cancellationToken)

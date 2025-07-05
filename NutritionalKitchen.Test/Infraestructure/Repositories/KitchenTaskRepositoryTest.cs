@@ -26,7 +26,7 @@ namespace NutritionalKitchen.Test.Infraestructure.Repositories
         public async Task AddAsync_ShouldAddKitchenTask()
         {
             // Arrange
-            var task = new KitchenTask("Desc", "Pending", "Chef", DateTime.Today);
+            var task = new KitchenTask("Chef", DateTime.Today);
 
             _mockDbContext.Setup(x => x.KitchenTask).ReturnsDbSet(new List<KitchenTask>());
 
@@ -41,7 +41,7 @@ namespace NutritionalKitchen.Test.Infraestructure.Repositories
         public async Task GetByIdAsync_ShouldReturnKitchenTask_WhenExists()
         {
             // Arrange
-            var task = new KitchenTask("Desc", "Pending", "Chef", DateTime.Today);
+            var task = new KitchenTask("Chef", DateTime.Today);
             var data = new List<KitchenTask> { task };
 
             _mockDbContext.Setup(x => x.KitchenTask).ReturnsDbSet(data);
@@ -58,7 +58,7 @@ namespace NutritionalKitchen.Test.Infraestructure.Repositories
         public async Task DeleteAsync_ShouldRemoveKitchenTask_WhenExists()
         {
             // Arrange
-            var task = new KitchenTask("Desc", "Pending", "Chef", DateTime.Today);
+            var task = new KitchenTask("Chef", DateTime.Today);
             var data = new List<KitchenTask> { task };
 
             _mockDbContext.Setup(x => x.KitchenTask).ReturnsDbSet(data);
@@ -74,7 +74,7 @@ namespace NutritionalKitchen.Test.Infraestructure.Repositories
         public async Task UpdateAsync_ShouldUpdateKitchenTask()
         {
             // Arrange
-            var task = new KitchenTask("Desc", "Pending", "Chef", DateTime.Today);
+            var task = new KitchenTask("Chef", DateTime.Today);
 
             _mockDbContext.Setup(x => x.KitchenTask).ReturnsDbSet(new List<KitchenTask>());
 

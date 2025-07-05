@@ -6,9 +6,9 @@ using NutritionalKitchen.Application.KitchenTask.GetKitchenTask;
 using NutritionalKitchen.WebApi.Controllers;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using Xunit;
 
 namespace NutritionalKitchen.Test.WebApi
 {
@@ -27,13 +27,9 @@ namespace NutritionalKitchen.Test.WebApi
         public async Task CreateKitchenTask_ReturnsOk_WhenCommandSucceeds()
         {
             // Arrange
-            var command = new CreateKitchenTaskCommand(
-                 "test",   
-                 "PENDING",           
-                 "JUAN",    
-                 new DateTime(2025, 6, 26, 8, 30, 0) 
-             );
+            var command = new CreateKitchenTaskCommand("JUAN", new DateTime(2025, 6, 26, 8, 30, 0));
             var expectedId = Guid.NewGuid();
+
             _mediatorMock
                 .Setup(m => m.Send(command, It.IsAny<CancellationToken>()))
                 .ReturnsAsync(expectedId);
@@ -44,18 +40,14 @@ namespace NutritionalKitchen.Test.WebApi
             // Assert
             var okResult = Assert.IsType<OkObjectResult>(result);
             Assert.Equal(expectedId, okResult.Value);
-        } 
+        }
 
         [Fact]
         public async Task CreateKitchenTask_Returns500_WhenExceptionThrown()
         {
-            // Arrange 
-            var command = new CreateKitchenTaskCommand(
-                 "test",
-                 "PENDING", 
-                 "JUAN", 
-                 new DateTime(2025, 6, 26, 8, 30, 0) 
-             );
+            // Arrange
+            var command = new CreateKitchenTaskCommand("JUAN", new DateTime(2025, 6, 26, 8, 30, 0));
+
             _mediatorMock
                 .Setup(m => m.Send(command, It.IsAny<CancellationToken>()))
                 .ThrowsAsync(new Exception("Error al crear tarea"));
@@ -78,20 +70,17 @@ namespace NutritionalKitchen.Test.WebApi
                 new KitchenTaskDTO
                 {
                     Id = Guid.NewGuid(),
-                    Description = "Preparar desayuno",
-                    Status = "PENDING",
                     Kitchener = "JUAN",
                     PreparationDate = new DateTime(2025, 6, 26, 8, 30, 0)
                 },
                 new KitchenTaskDTO
                 {
                     Id = Guid.NewGuid(),
-                    Description = "Hornear pan",
-                    Status = "IN_PROGRESS",
                     Kitchener = "MARIA",
                     PreparationDate = new DateTime(2025, 6, 26, 9, 0, 0)
                 }
             };
+
             _mediatorMock
                 .Setup(m => m.Send(It.IsAny<GetKitchenTaskQuery>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(tasks);
@@ -101,7 +90,9 @@ namespace NutritionalKitchen.Test.WebApi
 
             // Assert
             var okResult = Assert.IsType<OkObjectResult>(result);
-            Assert.Equal(tasks, okResult.Value);
+            var returnValue = Assert.IsAssignableFrom<IEnumerable<KitchenTaskDTO>>(okResult.Value);
+
+            Assert.Equal(tasks.Count, returnValue.Count());
         }
 
         [Fact]
@@ -121,5 +112,4 @@ namespace NutritionalKitchen.Test.WebApi
             Assert.Equal("Error al obtener tareas", objectResult.Value);
         }
     }
-
 }

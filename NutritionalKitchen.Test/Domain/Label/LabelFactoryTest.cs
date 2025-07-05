@@ -1,9 +1,6 @@
 ﻿using NutritionalKitchen.Domain.Label;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Xunit;
 
 namespace NutritionalKitchen.Test.Domain.Label
 {
@@ -14,6 +11,7 @@ namespace NutritionalKitchen.Test.Domain.Label
         {
             // Arrange
             var factory = new LabelFactory();
+            var id = Guid.NewGuid();
             var productionDate = new DateTime(2025, 6, 26);
             var expirationDate = productionDate.AddDays(7);
             var deliberyDate = productionDate.AddDays(1);
@@ -25,10 +23,11 @@ namespace NutritionalKitchen.Test.Domain.Label
             var status = true;
 
             // Act
-            var result = factory.Create(productionDate, expirationDate, deliberyDate, detail, address, contractId, patientId, deliberyId, status);
+            var result = factory.Create(id, productionDate, expirationDate, deliberyDate, detail, address, contractId, patientId, deliberyId, status);
 
             // Assert
             Assert.NotNull(result);
+            Assert.Equal(id, result.Id);
             Assert.Equal(productionDate, result.ProductionDate);
             Assert.Equal(expirationDate, result.ExpirationDate);
             Assert.Equal(deliberyDate, result.DeliberyDate);
@@ -36,6 +35,8 @@ namespace NutritionalKitchen.Test.Domain.Label
             Assert.Equal(address, result.Address);
             Assert.Equal(contractId, result.ContractId);
             Assert.Equal(patientId, result.PatientId);
+            Assert.Equal(deliberyId, result.DeliberyId);
+            Assert.Equal(status, result.Status);
         }
     }
 }

@@ -16,9 +16,7 @@ namespace NutritionalKitchen.Test.Infraestructure.StoredModel
             // Arrange
             var model = new KitchenTaskStoredModel
             {
-                Id = Guid.NewGuid(),
-                Description = "Valid description",
-                Status = null,
+                Id = Guid.NewGuid(), 
                 Kitchener = "Pedro",
                 PreparationDate = DateTime.Today
             };
@@ -38,9 +36,7 @@ namespace NutritionalKitchen.Test.Infraestructure.StoredModel
         {
             var model = new KitchenTaskStoredModel
             {
-                Id = Guid.NewGuid(),
-                Description = "Valid description",
-                Status = new string('X', 21),
+                Id = Guid.NewGuid(), 
                 Kitchener = "Pedro",
                 PreparationDate = DateTime.Today
             };
@@ -58,9 +54,7 @@ namespace NutritionalKitchen.Test.Infraestructure.StoredModel
         {
             var model = new KitchenTaskStoredModel
             {
-                Id = Guid.NewGuid(),
-                Description = "Some desc",
-                Status = "PENDING",
+                Id = Guid.NewGuid(), 
                 Kitchener = "JUAN",
                 PreparationDate = default 
             };
@@ -77,9 +71,7 @@ namespace NutritionalKitchen.Test.Infraestructure.StoredModel
         {
             var model = new KitchenTaskStoredModel
             {
-                Id = Guid.NewGuid(),
-                Description = "Preparar sopa",
-                Status = "PENDING",
+                Id = Guid.NewGuid(), 
                 Kitchener = "Ana",
                 PreparationDate = DateTime.Today
             };
@@ -96,9 +88,7 @@ namespace NutritionalKitchen.Test.Infraestructure.StoredModel
         {
             var model = new KitchenTaskStoredModel
             {
-                Id = Guid.NewGuid(),
-                Description = new string('D', 501),
-                Status = "PENDING",
+                Id = Guid.NewGuid(), 
                 Kitchener = "Ana",
                 PreparationDate = DateTime.Today
             };
@@ -116,9 +106,7 @@ namespace NutritionalKitchen.Test.Infraestructure.StoredModel
         {
             var model = new KitchenTaskStoredModel
             {
-                Id = Guid.NewGuid(),
-                Description = "Valida",
-                Status = "PENDING",
+                Id = Guid.NewGuid(), 
                 Kitchener = new string('A', 101),
                 PreparationDate = DateTime.Today
             };

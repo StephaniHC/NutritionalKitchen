@@ -70,8 +70,7 @@ namespace NutritionalKitchen.Test.Infraestructure.Repositories
         public async Task GetByIdAsync_ShouldReturnEntity_WhenExists()
         {
             // Arrange
-            var recipePreparation = new RecipePreparation(
-                recipeName: "Paella",
+            var recipePreparation = new RecipePreparation( 
                 detail: "Preparar con mariscos",
                 preparationDate: DateTime.Today,
                 patientId: Guid.NewGuid()
@@ -93,8 +92,7 @@ namespace NutritionalKitchen.Test.Infraestructure.Repositories
         public async Task DeleteAsync_ShouldCallRemoveOnDbSet()
         {
             // Arrange
-            var recipePreparation = new RecipePreparation(
-                recipeName: "Paella",
+            var recipePreparation = new RecipePreparation( 
                 detail: "Preparar con mariscos",
                 preparationDate: DateTime.Today,
                 patientId: Guid.NewGuid()

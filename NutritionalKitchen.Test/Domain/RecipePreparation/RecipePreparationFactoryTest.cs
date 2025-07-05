@@ -13,18 +13,16 @@ namespace NutritionalKitchen.Test.Domain.RecipePreparation
         public void Create_ShouldReturnRecipePreparation_WithCorrectProperties()
         {
             // Arrange
-            var factory = new RecipePreparationFactory();
-            var recipeName = "Ensalada de quinoa";
+            var factory = new RecipePreparationFactory(); 
             var detail = "Sin sal, para hipertensión";
             var preparationDate = new DateTime(2025, 6, 26);
             var patientId = Guid.NewGuid();
 
             // Act
-            var result = factory.Create(recipeName, detail, preparationDate, patientId);
+            var result = factory.Create(patientId, patientId, detail, detail, preparationDate, patientId);
 
             // Assert
-            Assert.NotNull(result);
-            Assert.Equal(recipeName, result.RecipeName);
+            Assert.NotNull(result); 
             Assert.Equal(detail, result.Detail);
             Assert.Equal(preparationDate, result.PreparationDate);
             Assert.Equal(patientId, result.PatientId);

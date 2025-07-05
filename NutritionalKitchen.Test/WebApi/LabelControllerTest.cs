@@ -7,8 +7,9 @@ using NutritionalKitchen.WebApi.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using Xunit;
 
 namespace NutritionalKitchen.Test.WebApi
 {
@@ -28,6 +29,7 @@ namespace NutritionalKitchen.Test.WebApi
         {
             // Arrange
             var command = new CreateLabelCommand(
+                Guid.NewGuid(),
                 DateTime.UtcNow,
                 DateTime.UtcNow.AddDays(10),
                 DateTime.UtcNow.AddDays(1),
@@ -58,6 +60,7 @@ namespace NutritionalKitchen.Test.WebApi
         {
             // Arrange
             var command = new CreateLabelCommand(
+                Guid.NewGuid(),
                 DateTime.UtcNow,
                 DateTime.UtcNow.AddDays(10),
                 DateTime.UtcNow.AddDays(1),
@@ -87,30 +90,30 @@ namespace NutritionalKitchen.Test.WebApi
         {
             // Arrange
             var labels = new List<LabelDTO>
-        {
-            new LabelDTO
             {
-                Id = Guid.NewGuid(),
-                ProductionDate = DateTime.UtcNow,
-                ExpirationDate = DateTime.UtcNow.AddDays(30),
-                DeliberyDate = DateTime.UtcNow.AddDays(1),
-                Detail = "Etiqueta 1",
-                Address = "Calle 1",
-                ContractId = Guid.NewGuid(),
-                PatientId = Guid.NewGuid()
-            },
-            new LabelDTO
-            {
-                Id = Guid.NewGuid(),
-                ProductionDate = DateTime.UtcNow,
-                ExpirationDate = DateTime.UtcNow.AddDays(20),
-                DeliberyDate = DateTime.UtcNow.AddDays(2),
-                Detail = "Etiqueta 2",
-                Address = "Calle 2",
-                ContractId = Guid.NewGuid(),
-                PatientId = Guid.NewGuid()
-            }
-        };
+                new LabelDTO
+                {
+                    Id = Guid.NewGuid(),
+                    ProductionDate = DateTime.UtcNow,
+                    ExpirationDate = DateTime.UtcNow.AddDays(30),
+                    DeliberyDate = DateTime.UtcNow.AddDays(1),
+                    Detail = "Etiqueta 1",
+                    Address = "Calle 1",
+                    ContractId = Guid.NewGuid(),
+                    PatientId = Guid.NewGuid()
+                },
+                new LabelDTO
+                {
+                    Id = Guid.NewGuid(),
+                    ProductionDate = DateTime.UtcNow,
+                    ExpirationDate = DateTime.UtcNow.AddDays(20),
+                    DeliberyDate = DateTime.UtcNow.AddDays(2),
+                    Detail = "Etiqueta 2",
+                    Address = "Calle 2",
+                    ContractId = Guid.NewGuid(),
+                    PatientId = Guid.NewGuid()
+                }
+            };
 
             _mediatorMock
                 .Setup(m => m.Send(It.Is<GetLabelQuery>(q => q.SearchTerm == ""), It.IsAny<CancellationToken>()))
@@ -142,7 +145,60 @@ namespace NutritionalKitchen.Test.WebApi
             var objectResult = Assert.IsType<ObjectResult>(result);
             Assert.Equal(500, objectResult.StatusCode);
             Assert.Equal("Error al obtener etiquetas", objectResult.Value);
+        }  
+        [Fact]
+        public async Task GetTodayLabels_ReturnsOk_WithListOfLabels()
+        {
+            // Arrange
+            var patientId = Guid.NewGuid();
+
+            var labelsToday = new List<LabelDTO>
+            {
+                new LabelDTO
+                {
+                    Id = Guid.NewGuid(),
+                    ProductionDate = DateTime.UtcNow,
+                    ExpirationDate = DateTime.UtcNow.AddDays(30),
+                    DeliberyDate = DateTime.UtcNow,
+                    Detail = "Etiqueta Hoy 1",
+                    Address = "Calle Hoy 1",
+                    ContractId = Guid.NewGuid(),
+                    PatientId = patientId
+                }
+            };
+
+            _mediatorMock
+                .Setup(m => m.Send(It.Is<GetLabelByTodayQuery>(q => q.PatientId == patientId), It.IsAny<CancellationToken>()))
+                .ReturnsAsync(labelsToday);
+
+            // Act
+            var result = await _controller.GetTodayLabels(patientId);
+
+            // Assert
+            var okResult = Assert.IsType<OkObjectResult>(result);
+            var returnValue = Assert.IsAssignableFrom<IEnumerable<LabelDTO>>(okResult.Value);
+
+            Assert.Single(returnValue);
+            Assert.All(returnValue, l => Assert.Equal(patientId, l.PatientId));
+        }
+
+        [Fact]
+        public async Task GetTodayLabels_Returns500_WhenExceptionThrown()
+        {
+            // Arrange
+            var patientId = Guid.NewGuid();
+
+            _mediatorMock
+                .Setup(m => m.Send(It.IsAny<GetLabelByTodayQuery>(), It.IsAny<CancellationToken>()))
+                .ThrowsAsync(new Exception("Error al obtener etiquetas del día"));
+
+            // Act
+            var result = await _controller.GetTodayLabels(patientId);
+
+            // Assert
+            var objectResult = Assert.IsType<ObjectResult>(result);
+            Assert.Equal(500, objectResult.StatusCode);
+            Assert.Equal("Error al obtener etiquetas del día", objectResult.Value);
         }
     }
-
 }

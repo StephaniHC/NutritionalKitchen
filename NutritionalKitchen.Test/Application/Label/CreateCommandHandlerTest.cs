@@ -2,10 +2,9 @@
 using NutritionalKitchen.Application.Label.CreateLabel;
 using NutritionalKitchen.Domain.Abstractions;
 using NutritionalKitchen.Domain.Label;
+using Xunit;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace NutritionalKitchen.Test.Application.Label
@@ -23,11 +22,12 @@ namespace NutritionalKitchen.Test.Application.Label
             var detail = "Etiqueta para paciente con dieta líquida";
             var address = "Calle 123";
             var contractId = Guid.NewGuid();
-            var patientId = Guid.NewGuid(); 
+            var patientId = Guid.NewGuid();
             var deliberyId = Guid.NewGuid();
             var status = true;
 
             var command = new CreateLabelCommand(
+                labelId,                // <-- AHORA CON id
                 productionDate,
                 expirationDate,
                 deliberyDate,
@@ -43,7 +43,8 @@ namespace NutritionalKitchen.Test.Application.Label
             var mockLabelRepository = new Mock<ILabelRepository>();
             var mockUnitOfWork = new Mock<IUnitOfWork>();
 
-            var createdLabel = new NutritionalKitchen.Domain.Label.Label( 
+            var createdLabel = new NutritionalKitchen.Domain.Label.Label(
+                labelId,               // <-- id también aquí
                 productionDate,
                 expirationDate,
                 deliberyDate,
@@ -56,7 +57,17 @@ namespace NutritionalKitchen.Test.Application.Label
             );
 
             mockLabelFactory
-                .Setup(f => f.Create(productionDate, expirationDate, deliberyDate, detail, address, contractId, patientId, deliberyId, status))
+                .Setup(f => f.Create(
+                    labelId,
+                    productionDate,
+                    expirationDate,
+                    deliberyDate,
+                    detail,
+                    address,
+                    contractId,
+                    patientId,
+                    deliberyId,
+                    status))
                 .Returns(createdLabel);
 
             var handler = new CreateCommandHandler(
@@ -68,10 +79,22 @@ namespace NutritionalKitchen.Test.Application.Label
             // Act
             var result = await handler.Handle(command, CancellationToken.None);
 
-            // Assert  
-            mockLabelFactory.Verify(f => f.Create(productionDate, expirationDate, deliberyDate, detail, address, contractId, patientId, deliberyId, status), Times.Once);
+            // Assert
+            Assert.Equal(labelId, result);
+            mockLabelFactory.Verify(f => f.Create(
+                labelId,
+                productionDate,
+                expirationDate,
+                deliberyDate,
+                detail,
+                address,
+                contractId,
+                patientId,
+                deliberyId,
+                status), Times.Once);
+
             mockLabelRepository.Verify(r => r.AddAsync(createdLabel), Times.Once);
-            mockUnitOfWork.Verify(u => u.CommitAsync(It.IsAny<CancellationToken>()), Times.Once);
+            mockUnitOfWork.Verify(u => u.CommitBulkAsync(It.IsAny<CancellationToken>()), Times.Once);  
         }
     }
 }

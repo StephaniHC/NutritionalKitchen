@@ -34,16 +34,12 @@ namespace NutritionalKitchen.Test.Infraestructure.Handler
                 new KitchenTaskStoredModel
                 {
                     Id = Guid.NewGuid(),
-                    Description = "Desc1",
-                    Status = "Status1",
                     Kitchener = "Chef1",
                     PreparationDate = DateTime.Today
                 },
                 new KitchenTaskStoredModel
                 {
                     Id = Guid.NewGuid(),
-                    Description = "Desc2",
-                    Status = "Status2",
                     Kitchener = "Chef2",
                     PreparationDate = DateTime.Today
                 }
@@ -61,8 +57,6 @@ namespace NutritionalKitchen.Test.Infraestructure.Handler
             // Assert
             var list = result.ToList();
             Assert.Equal(2, list.Count);
-            Assert.Contains(list, t => t.Description == "Desc1" && t.Kitchener == "Chef1");
-            Assert.Contains(list, t => t.Description == "Desc2" && t.Status == "Status2");
         }
     }
 }

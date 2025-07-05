@@ -2,22 +2,20 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Xunit;
 
 namespace NutritionalKitchen.Test.Infraestructure.StoredModel
 {
     public class RecipePreparationStoredModelTest
     {
         [Fact]
-        public void RecipePreparation_ShouldFail_ManualValidation()
+        public void RecipePreparation_ShouldFail_ManualValidation_WhenRecipeIdIsMissing()
         {
             // Arrange
             var model = new RecipePreparationStoredModel
             {
                 Id = Guid.NewGuid(),
-                RecipeName = "Ensalada",
+                // RecipeId = missing to simulate invalid model
                 Detail = "Verduras frescas",
                 PreparationDate = DateTime.Today,
                 PatientId = Guid.NewGuid()
@@ -29,10 +27,9 @@ namespace NutritionalKitchen.Test.Infraestructure.StoredModel
             var isValid = Validator.TryValidateObject(model, context, results, true);
 
             // Assert
-            Assert.True(isValid);
-            Assert.NotEqual(Guid.Empty, model.PatientId);
+            Assert.False(isValid);
+            Assert.Contains(results, r => r.MemberNames.Contains(nameof(RecipePreparationStoredModel.RecipeId)));
         }
-
 
         [Fact]
         public void Should_PassValidation_When_AllFields_AreValid()
@@ -41,7 +38,7 @@ namespace NutritionalKitchen.Test.Infraestructure.StoredModel
             var model = new RecipePreparationStoredModel
             {
                 Id = Guid.NewGuid(),
-                RecipeName = "Sopa de pollo",
+                RecipeId = Guid.NewGuid(),
                 Detail = "Receta casera",
                 PreparationDate = DateTime.Today,
                 PatientId = Guid.NewGuid()
@@ -54,6 +51,7 @@ namespace NutritionalKitchen.Test.Infraestructure.StoredModel
 
             // Assert
             Assert.True(isValid);
+            Assert.Empty(results);
         }
     }
 }

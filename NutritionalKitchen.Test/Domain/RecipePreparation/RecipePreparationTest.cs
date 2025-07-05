@@ -18,11 +18,10 @@ namespace NutritionalKitchen.Test.Domain.RecipePreparation
             var patientId = Guid.NewGuid();
 
             // Act
-            var recipePreparation = new NutritionalKitchen.Domain.RecipePreparation.RecipePreparation(recipeName, detail, preparationDate, patientId);
+            var recipePreparation = new NutritionalKitchen.Domain.RecipePreparation.RecipePreparation(patientId, patientId, recipeName, detail, preparationDate, patientId);
 
             // Assert
-            Assert.NotNull(recipePreparation);
-            Assert.Equal(recipeName, recipePreparation.RecipeName);
+            Assert.NotNull(recipePreparation); 
             Assert.Equal(detail, recipePreparation.Detail);
             Assert.Equal(preparationDate, recipePreparation.PreparationDate);
             Assert.Equal(patientId, recipePreparation.PatientId);

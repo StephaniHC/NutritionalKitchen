@@ -25,7 +25,7 @@ namespace NutritionalKitchen.Test.Infraestructure.StoredModel
                 ContractId = Guid.NewGuid(),
                 PatientId = Guid.NewGuid(),
                 DeliberyId = Guid.NewGuid(),
-                Status = true
+                Status = "PENDIENTE"
             };
 
             // Act
@@ -54,7 +54,7 @@ namespace NutritionalKitchen.Test.Infraestructure.StoredModel
                 ContractId = Guid.NewGuid(),
                 PatientId = Guid.NewGuid(),
                 DeliberyId = Guid.NewGuid(),
-                Status = true
+                Status = "PENDIENTE"
             };
 
             var results = new List<ValidationResult>();
@@ -79,7 +79,7 @@ namespace NutritionalKitchen.Test.Infraestructure.StoredModel
                 ContractId = Guid.NewGuid(),
                 PatientId = Guid.NewGuid(),
                 DeliberyId = Guid.NewGuid(),
-                Status = true
+                Status = "PENDIENTE"
             };
 
             var results = new List<ValidationResult>();
@@ -104,7 +104,7 @@ namespace NutritionalKitchen.Test.Infraestructure.StoredModel
                 ContractId = Guid.NewGuid(),
                 PatientId = Guid.NewGuid(),
                 DeliberyId = Guid.NewGuid(),
-                Status = true
+                Status = "PENDIENTE"
             };
 
             var results = new List<ValidationResult>();

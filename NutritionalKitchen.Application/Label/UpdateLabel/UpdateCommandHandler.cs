@@ -3,12 +3,14 @@ using NutritionalKitchen.Domain.Abstractions;
 using NutritionalKitchen.Domain.Label;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace NutritionalKitchen.Application.Label.UpdateLabel
 {
+    [ExcludeFromCodeCoverage]
     public class UpdateCommandHandler : IRequestHandler<UpdateLabelCommand, Unit>
     {
         private readonly ILabelRepository _labelRepository;

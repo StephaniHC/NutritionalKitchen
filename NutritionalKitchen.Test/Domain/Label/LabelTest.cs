@@ -9,32 +9,30 @@ namespace NutritionalKitchen.Test.Domain.Label
     public class LabelTest
     {
         [Fact]
-        public void Constructor_ShouldInitializeAllProperties()
+        public void Update_ShouldModifyAddress()
         {
             // Arrange
-            var productionDate = new DateTime(2025, 6, 27);
-            var expirationDate = productionDate.AddDays(10);
-            var deliberyDate = productionDate.AddDays(1);
-            var detail = "Etiqueta especial";
-            var address = "Av. Siempre Viva 742";
-            var contractId = Guid.NewGuid();
-            var patientId = Guid.NewGuid();
-            var deliberyId = Guid.NewGuid();
-            var status = true;
+            var id = Guid.NewGuid();
+            var label = new NutritionalKitchen.Domain.Label.Label(
+                id,
+                DateTime.Now,
+                DateTime.Now.AddDays(10),
+                DateTime.Now.AddDays(1),
+                "Detalle",
+                "Dirección inicial",
+                Guid.NewGuid(),
+                Guid.NewGuid(),
+                Guid.NewGuid(),
+                true
+            );
+            var newAddress = "Nueva dirección 123";
 
             // Act
-            var label = new NutritionalKitchen.Domain.Label.Label(productionDate, expirationDate, deliberyDate, detail, address, contractId, patientId, deliberyId, status);
+            label.Update(newAddress);
 
             // Assert
-            Assert.NotNull(label);
-            Assert.Equal(productionDate, label.ProductionDate);
-            Assert.Equal(expirationDate, label.ExpirationDate);
-            Assert.Equal(deliberyDate, label.DeliberyDate);
-            Assert.Equal(detail, label.Detail);
-            Assert.Equal(address, label.Address);
-            Assert.Equal(contractId, label.ContractId);
-            Assert.Equal(patientId, label.PatientId);
-            Assert.NotEqual(Guid.Empty, label.Id); 
+            Assert.Equal(newAddress, label.Address);
         }
+
     }
 }
