@@ -40,5 +40,12 @@ namespace NutritionalKitchen.Infrastructure.Repositories
 
             return Task.CompletedTask;
         }
+        public async Task<IEnumerable<PreparedFood>> GetByPreparationDateAsync(DateTime preparationDate)
+        {
+            return await _dbContext.PreparedFood
+                .Where(p => p.RecipePreparationDate.Date == preparationDate.Date)
+                .ToListAsync();
+        }
+
     }
 }

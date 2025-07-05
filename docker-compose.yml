@@ -1,7 +1,7 @@
 services:
   # Servicio de tu aplicación .NET
   nutritional-kitchen: 
-    image: stephaniheredia/microservicio-nutritional-kitchen:latest 
+    image: stephaniheredia/microservicio-nutritional-kitchen:v5
     container_name: nutritional-kitchen
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
@@ -27,8 +27,8 @@ services:
       - kong-net
   # Servicio de la base de datos postgresql
   postgres-db: 
-    image: stephaniheredia/nutritionalkitchendb:latest
-    container_name: nutritionalkitchen-db 
+    image: stephaniheredia/nutritionalkitchendb:v4
+    container_name: postgres-db
     environment:
       - POSTGRES_DB=nutritionalKitchen
       - POSTGRES_USER=postgres

@@ -15,15 +15,6 @@ namespace NutritionalKitchen.Infrastructure.StoredModel.Entities
         [Column("Id")]
         public Guid Id { get; set; }
 
-        [Column("Description")]
-        [StringLength(500)]
-        public string Description { get; set; }
-
-        [Column("Status")]
-        [StringLength(20)]
-        [Required]
-        public string Status { get; set; }
-         
         [Column("Kitchener")]
         [StringLength(100)]
         public string Kitchener { get; set; }

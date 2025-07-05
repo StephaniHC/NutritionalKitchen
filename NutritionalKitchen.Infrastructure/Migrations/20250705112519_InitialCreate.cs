@@ -19,8 +19,6 @@ namespace NutritionalKitchen.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Description = table.Column<string>(type: "text", nullable: false),
-                    Status = table.Column<string>(type: "text", nullable: false),
                     Kitchener = table.Column<string>(type: "text", nullable: false),
                     PreparationDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
@@ -87,7 +85,14 @@ namespace NutritionalKitchen.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    IdKitchenTask = table.Column<Guid>(type: "uuid", nullable: false)
+                    IdKitchenTask = table.Column<Guid>(type: "uuid", nullable: false),
+                    IdRecipePreparation = table.Column<Guid>(type: "uuid", nullable: false),
+                    RecipePreparationDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Status = table.Column<string>(type: "text", nullable: false),
+                    Recipe = table.Column<string>(type: "text", nullable: false),
+                    Detail = table.Column<string>(type: "text", nullable: false),
+                    PatientId = table.Column<Guid>(type: "uuid", nullable: false),
+                    LabelId = table.Column<Guid>(type: "uuid", nullable: true)
                 },
                 constraints: table =>
                 {

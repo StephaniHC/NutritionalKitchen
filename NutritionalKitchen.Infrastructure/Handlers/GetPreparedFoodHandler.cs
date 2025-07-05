@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using NutritionalKitchen.Application.PreparedFood.GetPreparedFood;
+using NutritionalKitchen.Application.RecipePreparation.GetRecipePreparation;
 using NutritionalKitchen.Infrastructure.StoredModel;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,13 @@ namespace NutritionalKitchen.Infrastructure.Handlers
             Select(p => new PreparedFoodDTO()
             {
                 Id = p.Id,
-                IdKitchenTask = p.IdKitchenTask
+                IdKitchenTask = p.IdKitchenTask, 
+                RecipePreparationDate = p.RecipePreparationDate,
+                Status = p.Status,
+                Recipe = p.Recipe,
+                Detail = p.Detail,
+                PatientId = p.PatientId,
+                LabelId = p.LabelId
             }).
             ToListAsync(cancellationToken);
         }

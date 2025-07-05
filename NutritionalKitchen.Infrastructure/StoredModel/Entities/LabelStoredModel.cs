@@ -48,7 +48,7 @@ namespace NutritionalKitchen.Infrastructure.StoredModel.Entities
 
         [Column("Status")] 
         [Required]
-        public bool Status { get; set; }
+        public string Status { get; set; }
 
     }
 }

@@ -23,9 +23,7 @@ namespace NutritionalKitchen.Infrastructure.Handlers
             return await _dbContext.KitchenTask.AsNoTracking().
             Select(k => new KitchenTaskDTO()
             {
-                Id = k.Id,
-                Description = k.Description,
-                Status = k.Status,
+                Id = k.Id, 
                 Kitchener = k.Kitchener,
                 PreparationDate = k.PreparationDate
             }).

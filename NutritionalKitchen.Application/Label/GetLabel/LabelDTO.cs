@@ -17,6 +17,6 @@ namespace NutritionalKitchen.Application.Label.GetLabel
         public Guid ContractId { get; set; }
         public Guid PatientId { get; set; }
         public Guid DeliberyId { get; set; }
-        public bool Status { get; set; }
+        public string Status { get; set; }
     }
 }

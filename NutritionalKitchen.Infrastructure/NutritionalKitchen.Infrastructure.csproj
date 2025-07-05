@@ -20,7 +20,8 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
-	<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.5" /> 
+	<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.5" />
+	<PackageReference Include="Sentry" Version="5.11.2" /> 
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NutritionalKitchen.Application\NutritionalKitchen.Application.csproj" />

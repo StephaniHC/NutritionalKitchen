@@ -18,12 +18,10 @@ namespace NutritionalKitchen.Test.Domain.KitchenTask
             var preparationDate = new DateTime(2025, 6, 27);
 
             // Act
-            var kitchenTask = new NutritionalKitchen.Domain.KitchenTask.KitchenTask(description, status, kitchener, preparationDate);
+            var kitchenTask = new NutritionalKitchen.Domain.KitchenTask.KitchenTask(kitchener, preparationDate);
 
             // Assert
             Assert.NotNull(kitchenTask);
-            Assert.Equal(description, kitchenTask.Description);
-            Assert.Equal(status, kitchenTask.Status);
             Assert.Equal(kitchener, kitchenTask.Kitchener);
             Assert.Equal(preparationDate, kitchenTask.PreparationDate);
             Assert.NotEqual(Guid.Empty, kitchenTask.Id);

@@ -20,12 +20,10 @@ namespace NutritionalKitchen.Test.Domain.KitchenTask
             var date = new DateTime(2025, 6, 26);
 
             // Act
-            var result = factory.Create(description, status, kitchener, date);
+            var result = factory.Create(kitchener, date);
 
             // Assert
             Assert.NotNull(result);
-            Assert.Equal(description, result.Description);
-            Assert.Equal(status, result.Status);
             Assert.Equal(kitchener, result.Kitchener);
             Assert.Equal(date, result.PreparationDate);
         }

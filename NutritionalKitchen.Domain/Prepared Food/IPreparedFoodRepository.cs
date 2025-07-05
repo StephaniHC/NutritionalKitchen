@@ -11,5 +11,6 @@ namespace NutritionalKitchen.Domain.PreparedFood
     {
         Task UpdateAsync(PreparedFood preparedFood);
         Task DeleteAsync(Guid id);
+        Task<IEnumerable<PreparedFood>> GetByPreparationDateAsync(DateTime preparationDate);
     }
 }

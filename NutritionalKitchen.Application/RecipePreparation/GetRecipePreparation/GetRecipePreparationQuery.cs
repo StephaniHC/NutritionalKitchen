@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace NutritionalKitchen.Application.RecipePreparation.GetRecipePreparation
-{ 
+{  
     public record GetRecipePreparationQuery(string SearchTerm) : IRequest<IEnumerable<RecipePreparationDTO>>;
+    public record GetRecipePreparationByTodayQuery() : IRequest<IEnumerable<RecipePreparationDTO>>;
 }

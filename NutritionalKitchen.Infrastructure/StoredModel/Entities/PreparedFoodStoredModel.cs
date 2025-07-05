@@ -13,11 +13,36 @@ namespace NutritionalKitchen.Infrastructure.StoredModel.Entities
     {
         [Key]
         [Column("Id")]
-        public Guid Id { get; set; } 
+        public Guid Id { get; set; }
 
         [Column("IdKitchenTask")]
         [Required]
         public Guid IdKitchenTask { get; set; }
-         
+
+        [Column("IdRecipePreparation")]
+        [Required]
+        public Guid IdRecipePreparation { get; set; }
+
+        [Column("RecipePreparationDate")]
+        [Required]
+        public DateTime RecipePreparationDate { get; set; }
+
+        [Column("Status")]
+        [Required]
+        public string Status { get; set; }
+
+        [Column("Recipe")]
+        public string Recipe { get; set; }
+
+        [Column("Detail")]
+        public string Detail { get; set; }
+
+        [Column("PatientId")]
+        [Required]
+        public Guid PatientId { get; set; }
+
+        [Column("LabelId")]
+        public Guid? LabelId { get; set; }
+
     }
 }

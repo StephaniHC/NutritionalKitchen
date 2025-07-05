@@ -1,5 +1,5 @@
-﻿using MediatR; 
-using NutritionalKitchen.Domain.Abstractions; 
+﻿using MediatR;
+using NutritionalKitchen.Domain.Abstractions;
 using NutritionalKitchen.Domain.PreparedFood;
 using System;
 using System.Collections.Generic;
@@ -27,7 +27,11 @@ namespace NutritionalKitchen.Application.PreparedFood.CreatePreparedFood
 
         public async Task<Guid> Handle(CreatePreparedFoodCommand request, CancellationToken cancellationToken)
         {
-            var preparedFood = _preparedFoodFactory.Create(request.idKitchenTask);
+            var preparedFood = _preparedFoodFactory.Create(
+                request.idKitchenTask, 
+                request.idRecipePreparation, 
+                request.recipePreparationDate, 
+                request.status, request.recipe, request.detail, request.patientId);
 
             await _preparedFoodRepository.AddAsync(preparedFood);
 

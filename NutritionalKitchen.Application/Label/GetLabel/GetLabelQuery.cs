@@ -9,4 +9,5 @@ using System.Threading.Tasks;
 namespace NutritionalKitchen.Application.Label.GetLabel
 { 
     public record GetLabelQuery(string SearchTerm) : IRequest<IEnumerable<LabelDTO>>;
+    public record GetLabelByTodayQuery(Guid PatientId) : IRequest<IEnumerable<LabelDTO>>;
 }

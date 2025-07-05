@@ -8,6 +8,6 @@ namespace NutritionalKitchen.Domain.PreparedFood
 {
     public interface IPreparedFoodFactory
     {
-        PreparedFood Create(Guid idKitchenTask);
+        PreparedFood Create(Guid idKitchenTask, Guid idRecipePreparation, DateTime recipePreparationDate, string status, string recipe, string detail, Guid patientId);
     }
 }
