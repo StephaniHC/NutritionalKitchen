@@ -12,7 +12,7 @@ using NutritionalKitchen.Infrastructure.DomainModel;
 namespace NutritionalKitchen.Infrastructure.Migrations
 {
     [DbContext(typeof(DomainDbContext))]
-    [Migration("20250705092646_InitialCreate")]
+    [Migration("20250705112519_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

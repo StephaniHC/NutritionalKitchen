@@ -1,12 +1,12 @@
 services:
   # Servicio de tu aplicación .NET
   nutritional-kitchen: 
-    image: stephaniheredia/microservicio-nutritional-kitchen:v4 
+    image: stephaniheredia/microservicio-nutritional-kitchen:v5
     container_name: nutritional-kitchen
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Host=postgres-db;Database=nutritionalKitchen;Username=postgres;Password=password
-      - RabbitMqSettings__Host=host.docker.internal
+      - RabbitMqSettings__Host=rabbitmq
       - RabbitMqSettings__UserName=storeUser
       - RabbitMqSettings__Password=storeUserPassword
       - RabbitMqSettings__VirtualHost=/
@@ -27,7 +27,7 @@ services:
       - kong-net
   # Servicio de la base de datos postgresql
   postgres-db: 
-    image: stephaniheredia/nutritionalkitchendb:v2
+    image: stephaniheredia/nutritionalkitchendb:v4
     container_name: postgres-db
     environment:
       - POSTGRES_DB=nutritionalKitchen
