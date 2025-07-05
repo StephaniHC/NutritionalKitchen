@@ -41,7 +41,7 @@ services:
 
 networks:
   nur-network:
-    driver: bridge
+    external: true  
   kong-net:
     external: true  
 
